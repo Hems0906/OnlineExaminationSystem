@@ -1,0 +1,64 @@
+﻿@model List<mvcfinal.Models.QuestionViewModel>
+
+@{
+    ViewBag.Title = "Exam Page";
+    int timer = ViewBag.Timer ?? 0; // in minutes
+    int level = ViewBag.Level ?? 1;
+    string subjectName = ViewBag.SubjectName ?? "Subject";
+}
+
+<h2>@subjectName - Level @level</h2>
+
+<div id="timer" class="alert alert-info">
+    Time Left: <span id="countdown">@timer:00</span>
+</div>
+
+@using (Html.BeginForm("SubmitExam", "Student", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.Hidden("subjectId", (int)ViewBag.SubjectId)
+    @Html.Hidden("level", level)
+
+    int qNo = 1;
+    foreach (var q in Model)
+    {
+        <div class="card mb-2 p-2">
+            <p><strong>Q@qNo: @q.QuestionText</strong></p>
+            <div class="form-check">
+                <input type="radio" name="answers[@(qNo-1)]" value="A" class="form-check-input" required /> @q.OptionA
+            </div>
+            <div class="form-check">
+                <input type="radio" name="answers[@(qNo-1)]" value="B" class="form-check-input" /> @q.OptionB
+            </div>
+            <div class="form-check">
+                <input type="radio" name="answers[@(qNo-1)]" value="C" class="form-check-input" /> @q.OptionC
+            </div>
+            <div class="form-check">
+                <input type="radio" name="answers[@(qNo-1)]" value="D" class="form-check-input" /> @q.OptionD
+            </div>
+        </div>
+        qNo++;
+    }
+
+    <button type="submit" class="btn btn-success">Submit Exam</button>
+}
+
+@section scripts {
+    <script>
+        var totalTime = @timer * 60; // seconds
+        var countdownEl = document.getElementById("countdown");
+
+        var interval = setInterval(function() {
+            var minutes = Math.floor(totalTime / 60);
+            var seconds = totalTime % 60;
+            countdownEl.innerText = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
+            totalTime--;
+
+            if(totalTime < 0) {
+                clearInterval(interval);
+                alert("Time over! Exam will be submitted automatically.");
+                document.forms[0].submit();
+            }
+        }, 1000);
+    </script>
+}

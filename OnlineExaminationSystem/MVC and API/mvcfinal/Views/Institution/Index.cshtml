@@ -1,0 +1,50 @@
+﻿@model List<mvcfinal.Models.SubjectViewModel>
+@{
+    ViewBag.Title = "Institution Dashboard";
+}
+
+<h2>Institution Dashboard</h2>
+
+<a class="btn btn-success mb-3" href="@Url.Action("AddSubject")">+ Add Subject</a>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No subjects available. Please add a subject first.</div>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Subject Name</th>
+                <th>Level 1 Timer</th>
+                <th>Level 2 Timer</th>
+                <th>Level 3 Timer</th>
+                <th>Total Questions</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var sub in Model)
+            {
+                <tr>
+                    <td>@sub.Id</td>
+                    <td>@sub.Name</td>
+                    <td>@sub.Level1Timer min</td>
+                    <td>@sub.Level2Timer min</td>
+                    <td>@sub.Level3Timer min</td>
+                    <td>@sub.Questions.Count</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="@Url.Action("AddQuestion", "Institution", new { subjectId = sub.Id })">
+                            Add Question
+                        </a>
+                        <a class="btn btn-info btn-sm" href="@Url.Action("ViewQuestions", "Institution", new { subjectId = sub.Id })">
+                            View Questions
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
