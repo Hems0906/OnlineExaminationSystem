@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Exam Result";
+    int score = ViewBag.Score;
+    int level = ViewBag.Level;
+    string subjectName = ViewBag.SubjectName;
+}
+
+<h2>Result for @subjectName - Level @level</h2>
+
+<div class="alert alert-success">
+    <p>Your Score: <strong>@score</strong></p>
+    @if (score >= 3) // demo pass criteria
+    {
+        <p>Congratulations! You passed this level.</p>
+        <a class="btn btn-primary" href="@Url.Action("StartExam","Student", new { subjectId=1, level=level+1 })">Next Level</a>
+    }
+    else
+    {
+        <p>You did not pass this level. Try again.</p>
+        <a class="btn btn-warning" href="@Url.Action("StartExam","Student", new { subjectId=1, level=level })">Retry</a>
+    }
+</div>
+
+<a class="btn btn-secondary" href="@Url.Action("Index","Student")">Back to Dashboard</a>
