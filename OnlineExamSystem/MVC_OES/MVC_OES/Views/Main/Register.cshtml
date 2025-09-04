@@ -1,0 +1,68 @@
+﻿@model MVC_OES.Models.Home.StudentRegister
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+<h2>Student Registration</h2>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+}
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+@using (Html.BeginForm("Register", "Main", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.StuName)
+        @Html.TextBoxFor(m => m.StuName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.StuName)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Mobile)
+        @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Mobile)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.City)
+        @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.City)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.State)
+        @Html.TextBoxFor(m => m.State, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.State)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DOB)
+        @Html.TextBoxFor(m => m.DOB, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+        @Html.ValidationMessageFor(m => m.DOB)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Qualification)
+        @Html.TextBoxFor(m => m.Qualification, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Qualification)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Completion)
+        @Html.TextBoxFor(m => m.Completion, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Completion)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "email" })
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Password)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+}
