@@ -1,0 +1,19 @@
+﻿@model MVC_OES.Models.Courses.AddCourseModel
+@{ ViewBag.Title = "Add Course"; }
+
+<h2>Add New Course</h2>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+}
+
+@using (Html.BeginForm("AddCourse", "Admin", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.CourseName)
+        @Html.TextBoxFor(m => m.CourseName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CourseName)
+    </div>
+    <button type="submit" class="btn btn-primary">Add Course</button>
+}

@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h2>Admin Dashboard</h2>
+<p>Welcome, @Session["UserEmail"]!</p>
+
+<a href="@Url.Action("Courses", "Admin")" class="btn btn-info btn-sm">View Courses</a>
+<a href="@Url.Action("Courses", "Admin")" class="btn btn-info btn-sm">View Report</a>
+

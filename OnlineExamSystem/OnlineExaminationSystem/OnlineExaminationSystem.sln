@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.36128.20
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExaminationSystem", "OnlineExaminationSystem\OnlineExaminationSystem.csproj", "{0018812C-2895-4EDB-9D59-FAD77167349E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_OES", "MVC_OES\MVC_OES.csproj", "{63614C5D-4F61-44F6-B23F-D30C1312D1B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0018812C-2895-4EDB-9D59-FAD77167349E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0018812C-2895-4EDB-9D59-FAD77167349E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0018812C-2895-4EDB-9D59-FAD77167349E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0018812C-2895-4EDB-9D59-FAD77167349E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63614C5D-4F61-44F6-B23F-D30C1312D1B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63614C5D-4F61-44F6-B23F-D30C1312D1B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63614C5D-4F61-44F6-B23F-D30C1312D1B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63614C5D-4F61-44F6-B23F-D30C1312D1B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0408EECB-9873-467A-9562-3D091EE2591C}
+	EndGlobalSection
+EndGlobal
