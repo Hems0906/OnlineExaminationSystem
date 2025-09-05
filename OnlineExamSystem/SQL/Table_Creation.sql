@@ -44,6 +44,20 @@ Create table Levels(level_id int identity(1,1) primary key,
 					tot_ques int not null,
 					duration int default 5 not null)
 
+--Create Table Questions
+
+create table Questions(QuestionId int identity(1,1) primary key,
+						CourseId int foreign key references courses(course_id),
+						LevelNumber int foreign key references Levels(level_id),
+						QuestionText nvarchar(max) not null,
+						OptionA nvarchar(200) not null,
+						OptionB nvarchar(200) not null,
+						OptionC nvarchar(200) not null,
+						OptionD nvarchar(200) not null,
+						Answer nvarchar(1) not null check (Answer in('a','b','c','d')),
+						Marks int not null default 1,
+						Status bit not null default 1)
+
 insert into Admin(admin_name, phone, address) values ('Admin_Rahul', '9876543210', 'New York, USA')
 
 insert into Users(email, password, role, reference_Id) values ('admin123@gmail.com', 'Admin@123', 'admin', 1)
@@ -54,6 +68,10 @@ select * from Users
 select * from Student
 select * from courses
 select * from Levels
+select * from Questions
 
 drop table Levels
 drop table courses
+drop table Questions
+
+drop table OTP

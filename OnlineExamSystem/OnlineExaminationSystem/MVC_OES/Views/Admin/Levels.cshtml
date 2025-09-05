@@ -18,7 +18,7 @@
                         <h4 class="card-title">@level.LevelName</h4>
                         <p class="card-text">Duration: @level.Duration mins</p>
                         <a href="@Url.Action("EditLevel", "Admin", new { courseId = courseId, levelNumber = level.LevelNumber })" class="btn btn-warning btn-sm">Edit</a>
-                        <a href="@Url.Action("AddQuestion", "Question", new { courseId = courseId, levelNumber = level.LevelNumber })" class="btn btn-primary btn-sm">Add Question</a>
+                        <a href="@Url.Action("GetQuestions", "Question", new { courseId = courseId, levelNumber = level.LevelNumber })" class="btn btn-primary btn-sm">Add Question</a>
                     </div>
                 </div>
             </div>

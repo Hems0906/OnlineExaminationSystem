@@ -1,0 +1,51 @@
+﻿@model MVC_OES.Models.Questions.QuestionModel
+@{
+    ViewBag.Title = "Add Question";
+}
+
+<h2>Add Question - Course @Model.CourseId | Level @Model.LevelNumber</h2>
+
+@using (Html.BeginForm("AddQuestion", "Question", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.CourseId)
+    @Html.HiddenFor(m => m.LevelNumber)
+
+    <div class="mb-3">
+        @Html.LabelFor(m => m.QuestionText)
+        @Html.TextAreaFor(m => m.QuestionText, new { @class = "form-control", rows = 3 })
+        @Html.ValidationMessageFor(m => m.QuestionText)
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(m => m.OptionA)
+        @Html.TextBoxFor(m => m.OptionA, new { @class = "form-control" })
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(m => m.OptionB)
+        @Html.TextBoxFor(m => m.OptionB, new { @class = "form-control" })
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(m => m.OptionC)
+        @Html.TextBoxFor(m => m.OptionC, new { @class = "form-control" })
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(m => m.OptionD)
+        @Html.TextBoxFor(m => m.OptionD, new { @class = "form-control" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Answer)
+        @Html.DropDownListFor(m => m.Answer,
+            new SelectList(new[] { "A", "B", "C", "D" }), "Select Correct Answer",
+            new { @class = "form-control" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Marks)
+        @Html.TextBoxFor(m => m.Marks, new { @class = "form-control", type = "number" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Question</button>
+    <a href="@Url.Action("GetQuestions", "Question", new { courseId = Model.CourseId, levelNumber = Model.LevelNumber })" class="btn btn-secondary">Cancel</a>
+}

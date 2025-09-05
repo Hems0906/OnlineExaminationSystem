@@ -1,0 +1,31 @@
+﻿@model MVC_OES.Models.Questions.UploadQuestionModel
+
+@{
+    ViewBag.Title = "Upload Questions";
+    int courseId = ViewBag.CourseId;
+    int levelNumber = ViewBag.LevelNumber;
+}
+
+<h2>Upload Questions — Course @courseId | Level @levelNumber</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+@using (Html.BeginForm("UploadQuestions", "Question", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3">
+        @Html.LabelFor(m => m.ExcelFile, "Select Excel File (.xlsx)", htmlAttributes: new { @class = "form-label" })
+        @Html.TextBoxFor(m => m.ExcelFile, new { type = "file", accept = ".xlsx", @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ExcelFile, "", new { @class = "text-danger" })
+    </div>
+
+    <input type="hidden" name="courseId" value="@courseId" />
+    <input type="hidden" name="levelNumber" value="@levelNumber" />
+
+    <button type="submit" class="btn btn-primary">Upload</button>
+    <a href="@Url.Action("GetQuestions", "Question", new { courseId = courseId, levelNumber = levelNumber })" class="btn btn-secondary">Back to Questions</a>
+}

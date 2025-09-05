@@ -134,5 +134,49 @@ namespace OnlineExaminationSystem.Controllers.Admin
                 newStatus = question.Status
             });
         }
+
+        [HttpPost]
+        [Route("addQuestionsBulk/{cid}/{lid}")]
+        public IHttpActionResult AddQuestionsBulk(int cid, int lid, [FromBody] List<Models.Questions.QuestionModel> questions)
+        {
+            if (questions == null || !questions.Any())
+                return BadRequest("No questions provided.");
+
+            var addedQuestions = new List<Question>();
+
+            foreach (var model in questions)
+            {
+                if (db.Questions.Any(q =>
+                    q.CourseId == cid &&
+                    q.LevelNumber == lid &&
+                    q.QuestionText.Trim().ToLower() == model.QuestionText.Trim().ToLower() &&
+                    q.Status == true))
+                {
+                    continue; 
+                }
+
+                var question = new Question
+                {
+                    CourseId = cid,
+                    LevelNumber = lid,
+                    QuestionText = model.QuestionText,
+                    OptionA = model.OptionA,
+                    OptionB = model.OptionB,
+                    OptionC = model.OptionC,
+                    OptionD = model.OptionD,
+                    Answer = model.Answer,
+                    Marks = model.Marks,
+                    Status = true
+                };
+
+                db.Questions.Add(question);
+                addedQuestions.Add(question);
+            }
+
+            db.SaveChanges();
+
+            return Ok(new { message = $"{addedQuestions.Count} questions added successfully." });
+        }
+
     }
 }
