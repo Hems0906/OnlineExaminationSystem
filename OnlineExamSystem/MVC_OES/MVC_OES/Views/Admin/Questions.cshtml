@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MVC_OES.Models.Question>
+
+@{ ViewBag.Title = "Questions List"; }
+
+<h2>Questions List</h2>
+
+<div class="mb-3">
+    @Html.ActionLink("Upload Questions", "UploadQuestions", "Admin", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Add New Question Manually", "AddQuestion", "Admin", null, new { @class = "btn btn-success ml-2" })
+    @Html.ActionLink("Download MCQ Template", "DownloadTemplate", new { type = "MCQ" }, new { @class = "btn btn-secondary ml-2" })
+    @Html.ActionLink("Download True/False Template", "DownloadTemplate", new { type = "TrueFalse" }, new { @class = "btn btn-secondary ml-2" })
+    @Html.ActionLink("Download All Questions (Excel)", "DownloadAllQuestions", "Admin", null, new { @class = "btn btn-info ml-2" })
+</div>
+
+@if (TempData["SuccessMessage"] != null)
+{
+<div class="alert alert-success">@TempData["SuccessMessage"]</div>}
+@if (TempData["ErrorMessage"] != null)
+{
+<div class="alert alert-danger">@TempData["ErrorMessage"]</div>}
+
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Subject</th>
+            <th>Type</th>
+            <th>Question</th>
+            <th>Options</th>
+            <th>Correct</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var q in Model)
+        {
+<tr>
+    <td>@q.Subject</td>
+    <td>@q.QuestionType</td>
+    <td>@q.QuestionText</td>
+    <td>
+        @if (string.Equals(q.QuestionType, "MCQ", StringComparison.OrdinalIgnoreCase))
+        {
+<div>
+    A: @q.OptionA<br />
+    B: @q.OptionB<br />
+    C: @q.OptionC<br />
+    D: @q.OptionD
+</div> }
+                else if (string.Equals(q.QuestionType, "TrueFalse", StringComparison.OrdinalIgnoreCase))
+                {
+<div>True / False</div> }
+                else
+                {
+<div>--</div>}
+    </td>
+    <td><strong>@q.CorrectAnswer</strong></td>
+    <td>
+        @Html.ActionLink("Delete", "DeleteQuestion", new { id = q.Id }, new
+        {
+            onclick = "return confirm('Are you sure you want to delete this question?');",
+            @class = "btn btn-sm btn-danger"
+        })
+    </td>
+</tr>}
+    </tbody>
+</table>

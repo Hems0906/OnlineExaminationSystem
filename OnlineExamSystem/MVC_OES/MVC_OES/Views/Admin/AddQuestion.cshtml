@@ -1,0 +1,72 @@
+﻿@model MVC_OES.Models.Question
+
+@{ ViewBag.Title = "Add Question"; }
+
+<h2>Add Question</h2>
+
+@using (Html.BeginForm("AddQuestion", "Admin", FormMethod.Post))
+{
+@Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Subject)
+                    @Html.TextBoxFor(m => m.Subject, new { @class = "form-control" })
+                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.QuestionText)
+                                    @Html.TextBoxFor(m => m.QuestionText, new { @class = "form-control" })
+                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.Label("Question Type")
+                                                    @Html.DropDownListFor(m => m.QuestionType, new SelectList(new[] {
+            new { Value = "MCQ", Text = "Multiple Choice" },
+            new { Value = "TrueFalse", Text = "True/False" }
+        }, "Value", "Text"), "Select Type", new { @class = "form-control", @id = "questionType" })
+                                                </div>
+
+                                                                <div id="mcq-options" style="display:none;">
+                                                                    <div class="form-group">
+                                                                        @Html.LabelFor(m => m.OptionA)
+                                                                        @Html.TextBoxFor(m => m.OptionA, new { @class = "form-control" })
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        @Html.LabelFor(m => m.OptionB)
+                                                                        @Html.TextBoxFor(m => m.OptionB, new { @class = "form-control" })
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        @Html.LabelFor(m => m.OptionC)
+                                                                        @Html.TextBoxFor(m => m.OptionC, new { @class = "form-control" })
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        @Html.LabelFor(m => m.OptionD)
+                                                                        @Html.TextBoxFor(m => m.OptionD, new { @class = "form-control" })
+                                                                    </div>
+                                                                </div>
+
+                                                                                <div id="truefalse-options" style="display:none;">
+                                                                                    <p>Options are automatically set as <strong>True</strong> and <strong>False</strong>.</p>
+                                                                                </div>
+
+                                                                                                <div class="form-group">
+                                                                                                    @Html.LabelFor(m => m.CorrectAnswer)
+                                                                                                    @Html.TextBoxFor(m => m.CorrectAnswer, new { @class = "form-control", placeholder = "A, B, C, D or True/False" })
+                                                                                                </div>
+
+                                                                                                                <button type="submit" class="btn btn-primary">Add Question</button>}
+
+@section Scripts {
+    <script>
+        function toggleOptions() {
+            const type = document.getElementById("questionType").value;
+            document.getElementById("mcq-options").style.display = type === "MCQ" ? "block" : "none";
+            document.getElementById("truefalse-options").style.display = type === "TrueFalse" ? "block" : "none";
+        }
+
+        // Run on page load
+        toggleOptions();
+
+        document.getElementById("questionType").addEventListener("change", toggleOptions);
+    </script>
+}
