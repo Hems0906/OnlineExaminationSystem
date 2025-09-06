@@ -58,6 +58,51 @@ create table Questions(QuestionId int identity(1,1) primary key,
 						Marks int not null default 1,
 						Status bit not null default 1)
 
+--Create table ExamAttempts
+
+create table ExamAttempts(attempt_id int identity(1,1) primary key,
+							user_id int foreign key references Users(user_id),
+							course_id int foreign key references courses(course_id),
+							level_number int not null,
+							total_questions int not null,
+							correct_answers int not null,
+							score int not null,
+							total_time int not null,
+							time_taken int not null,
+							is_passed bit not null)
+
+--Creating table UserAnswers
+
+create table UserAnswers(answer_id int identity(1,1) primary key,
+							attempt_id int foreign key references ExamAttempts(attempt_id),
+							question_id int foreign key references Questions(QuestionId),
+							selected_option nvarchar(1) check (selected_option in('A','B','C','D')),
+							is_correct bit not null)
+
+--Creating table StudentProgress
+
+create table StudentProgress(progress_id int identity(1,1) primary key,
+								user_id int foreign key references Users(user_id),
+								course_id int foreign key references courses(course_id),
+								highest_level_passed int default 0,
+								is_completed bit default 0)
+
+--Creating Table Exam Reports
+
+create table ExamReports(report_id int identity(1,1) primary key,
+							attempt_id int foreign key references ExamAttempts(attempt_id),
+							user_id int foreign key references Users(user_id),
+							course_id int foreign key references courses(course_id),
+							level_number int not null,
+							total_marks int not null,
+							passing_marks int not null,
+							score int not null,
+							is_passed bit not null,
+							total_time int not null,
+							time_taken int not null)
+
+
+
 insert into Admin(admin_name, phone, address) values ('Admin_Rahul', '9876543210', 'New York, USA')
 
 insert into Users(email, password, role, reference_Id) values ('admin123@gmail.com', 'Admin@123', 'admin', 1)
@@ -70,6 +115,10 @@ select * from courses
 select * from Levels
 select * from Questions
 
+drop table ExamReports
+drop table StudentProgress
+drop table UserAnswers
+drop table ExamAttempts
 drop table Questions
 drop table Levels
 drop table courses
