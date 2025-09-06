@@ -1,0 +1,33 @@
+﻿@model IEnumerable<MVC_OES.Models.Levels.LevelViewModel>
+
+@{
+    ViewBag.Title = "Manage Levels";
+    int courseId = ViewBag.CourseId;
+}
+
+<h2 class="mb-3">Manage Levels</h2>
+
+@if (Model != null && Model.Any())
+{
+    <div class="row">
+        @foreach (var level in Model)
+        {
+            <div class="col-md-4">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">@level.LevelName</h4>
+                        <p class="card-text">Duration: @level.Duration mins</p>
+                        <a href="@Url.Action("EditLevel", "Admin", new { courseId = courseId, levelNumber = level.LevelNumber })" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="@Url.Action("GetQuestions", "Question", new { courseId = courseId, levelNumber = level.LevelNumber })" class="btn btn-primary btn-sm">Add Question</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="alert alert-warning"> No levels available for this course. </div>
+}
+
+<a href="@Url.Action("Courses", "Admin")" class="btn btn-primary btn-sm">Back to Courses</a>

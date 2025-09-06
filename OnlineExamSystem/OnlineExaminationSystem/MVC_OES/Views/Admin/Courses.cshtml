@@ -1,0 +1,83 @@
+﻿@{ ViewBag.Title = "Manage Courses"; }
+
+<h2>Manage Courses</h2>
+
+<a href="@Url.Action("AddCourse", "Admin")" class="btn btn-primary mb-3">Add Course</a>
+
+@if (ViewBag.Courses != null)
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Course Name</th>
+                <th>Status</th>
+                <th>Levels</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var course in ViewBag.Courses)
+            {
+                <tr>
+                    <td>@course.CourseName</td>
+                    <td>
+                        <input type="checkbox" class="toggle-status" data-id="@course.CourseId" @(course.Status ? "checked" : "") />
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Levels", "Admin", new { courseId = course.CourseId })" class="btn btn-info btn-sm">Levels</a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("EditCourse", "Admin", new { courseId = course.CourseId })" class="btn btn-warning btn-sm">Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-warning">No courses available.</div>
+}
+
+@*@section Scripts {
+        <script>
+            $(document).ready(function () {
+                $('.toggle-status').change(function () {
+                    var courseid = $(this).data('id');
+                    var checkbox = $(this);
+                    $.ajax({
+                        url: '/admin/togglestatus/' + courseid,
+                        type: 'post',
+                        success: function (res) { alert(res.message); },
+                        error: function () {
+                            alert('error toggling status');
+                            checkbox.prop('checked', !checkbox.prop('checked'));
+                        }
+                    });
+                });
+            });
+        </script>
+    }*@
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        $('.toggle-status').change(function () {
+            var courseId = $(this).data('id');
+            var checkbox = $(this);
+
+            $.ajax({
+                url: '/Admin/ToggleStatus/' + courseId,
+                type: 'POST',
+                success: function (res) {
+                    alert(res.message);
+                },
+                error: function () {
+                    alert('Error toggling status');
+                    checkbox.prop('checked', !checkbox.prop('checked'));
+                }
+            });
+        });
+    });
+    </script>
+}
