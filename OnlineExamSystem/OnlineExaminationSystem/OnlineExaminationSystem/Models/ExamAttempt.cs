@@ -12,27 +12,31 @@ namespace OnlineExaminationSystem.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class ExamAttempt
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public ExamAttempt()
         {
-            this.ExamAttempts = new HashSet<ExamAttempt>();
             this.ExamReports = new HashSet<ExamReport>();
-            this.StudentProgresses = new HashSet<StudentProgress>();
+            this.UserAnswers = new HashSet<UserAnswer>();
         }
     
-        public int user_Id { get; set; }
-        public string email { get; set; }
-        public string password { get; set; }
-        public string role { get; set; }
-        public int reference_Id { get; set; }
+        public int attempt_id { get; set; }
+        public Nullable<int> user_id { get; set; }
+        public Nullable<int> course_id { get; set; }
+        public int level_number { get; set; }
+        public int total_questions { get; set; }
+        public int correct_answers { get; set; }
+        public int score { get; set; }
+        public int total_time { get; set; }
+        public int time_taken { get; set; }
+        public bool is_passed { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ExamAttempt> ExamAttempts { get; set; }
+        public virtual cours cours { get; set; }
+        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ExamReport> ExamReports { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StudentProgress> StudentProgresses { get; set; }
+        public virtual ICollection<UserAnswer> UserAnswers { get; set; }
     }
 }

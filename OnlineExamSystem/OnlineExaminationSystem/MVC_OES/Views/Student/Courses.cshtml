@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MVC_OES.Models.Student.CourseModel>
+
+@{
+    ViewBag.Title = "Courses";
+}
+
+<h2>Available Courses</h2>
+
+@if (!Model.Any())
+{
+    <p>No courses available.</p>
+}
+else
+{
+    <div class="row mt-4">
+        @foreach (var course in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">@course.course_name</h5>
+                        <p class="card-text">
+                            Status: <strong>@course.Status</strong> <br />
+                            Next Level: @course.next_level
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        @if (course.CanStartExam)
+                        {
+                            <a href="@Url.Action("StartExam", "Student", new { courseId = course.course_id, userId = (int)Session["UserId"], levelNumber = course.next_level })" class="btn btn-primary btn-block">
+                                Start Exam
+                            </a>
+                        }
+                        else
+                        {
+                            <button class="btn btn-secondary btn-block" disabled>Completed</button>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

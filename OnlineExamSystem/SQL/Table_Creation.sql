@@ -70,8 +70,7 @@ select * from courses
 select * from Levels
 select * from Questions
 
+drop table Questions
 drop table Levels
 drop table courses
-drop table Questions
 
-drop table OTP

@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OnlineExamSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="admin_id" />
+    </Key>
+    <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="admin_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cours">
+    <Key>
+      <PropertyRef Name="course_Id" />
+    </Key>
+    <Property Name="course_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="course_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="status" Type="Boolean" />
+    <NavigationProperty Name="ExamAttempts" Relationship="Self.FK__ExamAttem__cours__634EBE90" FromRole="courses" ToRole="ExamAttempts" />
+    <NavigationProperty Name="ExamReports" Relationship="Self.FK__ExamRepor__cours__72910220" FromRole="courses" ToRole="ExamReports" />
+    <NavigationProperty Name="Levels" Relationship="Self.FK__Levels__course_i__45BE5BA9" FromRole="courses" ToRole="Levels" />
+    <NavigationProperty Name="Questions" Relationship="Self.FK__Questions__Cours__51300E55" FromRole="courses" ToRole="Questions" />
+    <NavigationProperty Name="StudentProgresses" Relationship="Self.FK__StudentPr__cours__6BE40491" FromRole="courses" ToRole="StudentProgress" />
+  </EntityType>
+  <EntityType Name="ExamAttempt">
+    <Key>
+      <PropertyRef Name="attempt_id" />
+    </Key>
+    <Property Name="attempt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="course_id" Type="Int32" />
+    <Property Name="level_number" Type="Int32" Nullable="false" />
+    <Property Name="total_questions" Type="Int32" Nullable="false" />
+    <Property Name="correct_answers" Type="Int32" Nullable="false" />
+    <Property Name="score" Type="Int32" Nullable="false" />
+    <Property Name="total_time" Type="Int32" Nullable="false" />
+    <Property Name="time_taken" Type="Int32" Nullable="false" />
+    <Property Name="is_passed" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="cours" Relationship="Self.FK__ExamAttem__cours__634EBE90" FromRole="ExamAttempts" ToRole="courses" />
+    <NavigationProperty Name="User" Relationship="Self.FK__ExamAttem__user___625A9A57" FromRole="ExamAttempts" ToRole="Users" />
+    <NavigationProperty Name="ExamReports" Relationship="Self.FK__ExamRepor__attem__70A8B9AE" FromRole="ExamAttempts" ToRole="ExamReports" />
+    <NavigationProperty Name="UserAnswers" Relationship="Self.FK__UserAnswe__attem__662B2B3B" FromRole="ExamAttempts" ToRole="UserAnswers" />
+  </EntityType>
+  <EntityType Name="ExamReport">
+    <Key>
+      <PropertyRef Name="report_id" />
+    </Key>
+    <Property Name="report_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="attempt_id" Type="Int32" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="course_id" Type="Int32" />
+    <Property Name="level_number" Type="Int32" Nullable="false" />
+    <Property Name="total_marks" Type="Int32" Nullable="false" />
+    <Property Name="passing_marks" Type="Int32" Nullable="false" />
+    <Property Name="score" Type="Int32" Nullable="false" />
+    <Property Name="is_passed" Type="Boolean" Nullable="false" />
+    <Property Name="total_time" Type="Int32" Nullable="false" />
+    <Property Name="time_taken" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="cours" Relationship="Self.FK__ExamRepor__cours__72910220" FromRole="ExamReports" ToRole="courses" />
+    <NavigationProperty Name="ExamAttempt" Relationship="Self.FK__ExamRepor__attem__70A8B9AE" FromRole="ExamReports" ToRole="ExamAttempts" />
+    <NavigationProperty Name="User" Relationship="Self.FK__ExamRepor__user___719CDDE7" FromRole="ExamReports" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Level">
+    <Key>
+      <PropertyRef Name="level_id" />
+    </Key>
+    <Property Name="level_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="course_id" Type="Int32" />
+    <Property Name="level_number" Type="Int32" Nullable="false" />
+    <Property Name="level_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="passing_marks" Type="Int32" Nullable="false" />
+    <Property Name="tot_ques" Type="Int32" Nullable="false" />
+    <Property Name="duration" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="cours" Relationship="Self.FK__Levels__course_i__45BE5BA9" FromRole="Levels" ToRole="courses" />
+    <NavigationProperty Name="Questions" Relationship="Self.FK__Questions__Level__5224328E" FromRole="Levels" ToRole="Questions" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="QuestionId" />
+    </Key>
+    <Property Name="QuestionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseId" Type="Int32" />
+    <Property Name="LevelNumber" Type="Int32" />
+    <Property Name="QuestionText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OptionA" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OptionB" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OptionC" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OptionD" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Answer" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Marks" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="cours" Relationship="Self.FK__Questions__Cours__51300E55" FromRole="Questions" ToRole="courses" />
+    <NavigationProperty Name="Level" Relationship="Self.FK__Questions__Level__5224328E" FromRole="Questions" ToRole="Levels" />
+    <NavigationProperty Name="UserAnswers" Relationship="Self.FK__UserAnswe__quest__671F4F74" FromRole="Questions" ToRole="UserAnswers" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="stu_id" />
+    </Key>
+    <Property Name="stu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="stu_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="city" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Qualification" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Completion" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StudentProgress">
+    <Key>
+      <PropertyRef Name="progress_id" />
+    </Key>
+    <Property Name="progress_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="course_id" Type="Int32" />
+    <Property Name="highest_level_passed" Type="Int32" />
+    <Property Name="is_completed" Type="Boolean" />
+    <NavigationProperty Name="cours" Relationship="Self.FK__StudentPr__cours__6BE40491" FromRole="StudentProgress" ToRole="courses" />
+    <NavigationProperty Name="User" Relationship="Self.FK__StudentPr__user___6AEFE058" FromRole="StudentProgress" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="UserAnswer">
+    <Key>
+      <PropertyRef Name="answer_id" />
+    </Key>
+    <Property Name="answer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="attempt_id" Type="Int32" />
+    <Property Name="question_id" Type="Int32" />
+    <Property Name="selected_option" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="is_correct" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ExamAttempt" Relationship="Self.FK__UserAnswe__attem__662B2B3B" FromRole="UserAnswers" ToRole="ExamAttempts" />
+    <NavigationProperty Name="Question" Relationship="Self.FK__UserAnswe__quest__671F4F74" FromRole="UserAnswers" ToRole="Questions" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="user_Id" />
+    </Key>
+    <Property Name="user_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="role" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="reference_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ExamAttempts" Relationship="Self.FK__ExamAttem__user___625A9A57" FromRole="Users" ToRole="ExamAttempts" />
+    <NavigationProperty Name="ExamReports" Relationship="Self.FK__ExamRepor__user___719CDDE7" FromRole="Users" ToRole="ExamReports" />
+    <NavigationProperty Name="StudentProgresses" Relationship="Self.FK__StudentPr__user___6AEFE058" FromRole="Users" ToRole="StudentProgress" />
+  </EntityType>
+  <Association Name="FK__ExamAttem__cours__634EBE90">
+    <End Role="courses" Type="Self.cours" Multiplicity="0..1" />
+    <End Role="ExamAttempts" Type="Self.ExamAttempt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="course_Id" />
+      </Principal>
+      <Dependent Role="ExamAttempts">
+        <PropertyRef Name="course_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ExamRepor__cours__72910220">
+    <End Role="courses" Type="Self.cours" Multiplicity="0..1" />
+    <End Role="ExamReports" Type="Self.ExamReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="course_Id" />
+      </Principal>
+      <Dependent Role="ExamReports">
+        <PropertyRef Name="course_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Levels__course_i__45BE5BA9">
+    <End Role="courses" Type="Self.cours" Multiplicity="0..1" />
+    <End Role="Levels" Type="Self.Level" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="course_Id" />
+      </Principal>
+      <Dependent Role="Levels">
+        <PropertyRef Name="course_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Questions__Cours__51300E55">
+    <End Role="courses" Type="Self.cours" Multiplicity="0..1" />
+    <End Role="Questions" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="course_Id" />
+      </Principal>
+      <Dependent Role="Questions">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StudentPr__cours__6BE40491">
+    <End Role="courses" Type="Self.cours" Multiplicity="0..1" />
+    <End Role="StudentProgress" Type="Self.StudentProgress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="course_Id" />
+      </Principal>
+      <Dependent Role="StudentProgress">
+        <PropertyRef Name="course_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ExamAttem__user___625A9A57">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="ExamAttempts" Type="Self.ExamAttempt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="user_Id" />
+      </Principal>
+      <Dependent Role="ExamAttempts">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ExamRepor__attem__70A8B9AE">
+    <End Role="ExamAttempts" Type="Self.ExamAttempt" Multiplicity="0..1" />
+    <End Role="ExamReports" Type="Self.ExamReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExamAttempts">
+        <PropertyRef Name="attempt_id" />
+      </Principal>
+      <Dependent Role="ExamReports">
+        <PropertyRef Name="attempt_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserAnswe__attem__662B2B3B">
+    <End Role="ExamAttempts" Type="Self.ExamAttempt" Multiplicity="0..1" />
+    <End Role="UserAnswers" Type="Self.UserAnswer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExamAttempts">
+        <PropertyRef Name="attempt_id" />
+      </Principal>
+      <Dependent Role="UserAnswers">
+        <PropertyRef Name="attempt_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ExamRepor__user___719CDDE7">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="ExamReports" Type="Self.ExamReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="user_Id" />
+      </Principal>
+      <Dependent Role="ExamReports">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Questions__Level__5224328E">
+    <End Role="Levels" Type="Self.Level" Multiplicity="0..1" />
+    <End Role="Questions" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Levels">
+        <PropertyRef Name="level_id" />
+      </Principal>
+      <Dependent Role="Questions">
+        <PropertyRef Name="LevelNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserAnswe__quest__671F4F74">
+    <End Role="Questions" Type="Self.Question" Multiplicity="0..1" />
+    <End Role="UserAnswers" Type="Self.UserAnswer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Questions">
+        <PropertyRef Name="QuestionId" />
+      </Principal>
+      <Dependent Role="UserAnswers">
+        <PropertyRef Name="question_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StudentPr__user___6AEFE058">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="StudentProgress" Type="Self.StudentProgress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="user_Id" />
+      </Principal>
+      <Dependent Role="StudentProgress">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OnlineExamSystemEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="courses" EntityType="Self.cours" />
+    <EntitySet Name="ExamAttempts" EntityType="Self.ExamAttempt" />
+    <EntitySet Name="ExamReports" EntityType="Self.ExamReport" />
+    <EntitySet Name="Levels" EntityType="Self.Level" />
+    <EntitySet Name="Questions" EntityType="Self.Question" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="StudentProgresses" EntityType="Self.StudentProgress" />
+    <EntitySet Name="UserAnswers" EntityType="Self.UserAnswer" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK__ExamAttem__cours__634EBE90" Association="Self.FK__ExamAttem__cours__634EBE90">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="ExamAttempts" EntitySet="ExamAttempts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ExamRepor__cours__72910220" Association="Self.FK__ExamRepor__cours__72910220">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="ExamReports" EntitySet="ExamReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Levels__course_i__45BE5BA9" Association="Self.FK__Levels__course_i__45BE5BA9">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="Levels" EntitySet="Levels" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Questions__Cours__51300E55" Association="Self.FK__Questions__Cours__51300E55">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="Questions" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StudentPr__cours__6BE40491" Association="Self.FK__StudentPr__cours__6BE40491">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="StudentProgress" EntitySet="StudentProgresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ExamAttem__user___625A9A57" Association="Self.FK__ExamAttem__user___625A9A57">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="ExamAttempts" EntitySet="ExamAttempts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ExamRepor__attem__70A8B9AE" Association="Self.FK__ExamRepor__attem__70A8B9AE">
+      <End Role="ExamAttempts" EntitySet="ExamAttempts" />
+      <End Role="ExamReports" EntitySet="ExamReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserAnswe__attem__662B2B3B" Association="Self.FK__UserAnswe__attem__662B2B3B">
+      <End Role="ExamAttempts" EntitySet="ExamAttempts" />
+      <End Role="UserAnswers" EntitySet="UserAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ExamRepor__user___719CDDE7" Association="Self.FK__ExamRepor__user___719CDDE7">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="ExamReports" EntitySet="ExamReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Questions__Level__5224328E" Association="Self.FK__Questions__Level__5224328E">
+      <End Role="Levels" EntitySet="Levels" />
+      <End Role="Questions" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserAnswe__quest__671F4F74" Association="Self.FK__UserAnswe__quest__671F4F74">
+      <End Role="Questions" EntitySet="Questions" />
+      <End Role="UserAnswers" EntitySet="UserAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StudentPr__user___6AEFE058" Association="Self.FK__StudentPr__user___6AEFE058">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="StudentProgress" EntitySet="StudentProgresses" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

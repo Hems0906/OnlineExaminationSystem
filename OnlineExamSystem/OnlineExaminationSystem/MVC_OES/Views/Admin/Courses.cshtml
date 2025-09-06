@@ -10,26 +10,26 @@
         <thead>
             <tr>
                 <th>Course Name</th>
-                <th>Status</th>
                 <th>Levels</th>
                 <th>Edit</th>
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var course in ViewBag.Courses)
             {
-                <tr>
-                    <td>@course.CourseName</td>
-                    <td>
-                        <input type="checkbox" class="toggle-status" data-id="@course.CourseId" @(course.Status ? "checked" : "") />
-                    </td>
-                    <td>
-                        <a href="@Url.Action("Levels", "Admin", new { courseId = course.CourseId })" class="btn btn-info btn-sm">Levels</a>
-                    </td>
-                    <td>
-                        <a href="@Url.Action("EditCourse", "Admin", new { courseId = course.CourseId })" class="btn btn-warning btn-sm">Edit</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>@course.CourseName</td>
+                <td>
+                    <a href="@Url.Action("Levels", "Admin", new { courseId = course.CourseId })" class="btn btn-info btn-sm">Levels</a>
+                </td>
+                <td>
+                    <a href="@Url.Action("EditCourse", "Admin", new { courseId = course.CourseId })" class="btn btn-warning btn-sm">Edit</a>
+                </td>
+                <td>
+                    <input type="checkbox" class="toggle-status" data-id="@course.CourseId" @(course.Status ? "checked" : "") />
+                </td>
+            </tr>
             }
         </tbody>
     </table>
@@ -38,6 +38,8 @@ else
 {
     <div class="alert alert-warning">No courses available.</div>
 }
+
+<a href="@Url.Action("Dashboard", "Admin")" class="btn btn-warning btn-sm">Back To DashBoard</a>
 
 @*@section Scripts {
         <script>
@@ -58,26 +60,27 @@ else
             });
         </script>
     }*@
+
 @section Scripts {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-    $(document).ready(function () {
-        $('.toggle-status').change(function () {
-            var courseId = $(this).data('id');
-            var checkbox = $(this);
+        $(document).ready(function () {
+            $('.toggle-status').change(function () {
+                var courseId = $(this).data('id');
+                var checkbox = $(this);
 
-            $.ajax({
-                url: '/Admin/ToggleStatus/' + courseId,
-                type: 'POST',
-                success: function (res) {
-                    alert(res.message);
-                },
-                error: function () {
-                    alert('Error toggling status');
-                    checkbox.prop('checked', !checkbox.prop('checked'));
-                }
+                $.ajax({
+                    url: '/Admin/ToggleStatus/' + courseId,
+                    type: 'POST',
+                    success: function (res) {
+                        alert(res.message);
+                    },
+                    error: function () {
+                        alert('Error toggling status');
+                        checkbox.prop('checked', !checkbox.prop('checked'));
+                    }
+                });
             });
         });
-    });
     </script>
 }

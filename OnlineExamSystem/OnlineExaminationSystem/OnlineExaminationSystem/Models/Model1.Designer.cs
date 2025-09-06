@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\yogesh\OES_Final_Project\OnlineExaminationSystem\OnlineExaminationSystem\Models\ado.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\OnlineExaminationSystem\OnlineExamSystem\OnlineExaminationSystem\OnlineExaminationSystem\Models\Model1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

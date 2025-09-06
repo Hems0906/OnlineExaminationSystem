@@ -174,6 +174,8 @@
     <Compile Include="Models\Levels\LevelViewModel.cs" />
     <Compile Include="Models\Questions\QuestionModel.cs" />
     <Compile Include="Models\Questions\UploadQuestionModel.cs" />
+    <Compile Include="Models\Student\CourseModel.cs" />
+    <Compile Include="Models\Student\LevelViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -226,6 +228,7 @@
     <Content Include="Views\Question\EditQuestion.cshtml" />
     <Content Include="Views\Question\AddQuestion.cshtml" />
     <Content Include="Views\Question\UploadQuestions.cshtml" />
+    <Content Include="Views\Student\Courses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

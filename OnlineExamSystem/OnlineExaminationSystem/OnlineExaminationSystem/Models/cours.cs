@@ -17,8 +17,11 @@ namespace OnlineExaminationSystem.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public cours()
         {
+            this.ExamAttempts = new HashSet<ExamAttempt>();
+            this.ExamReports = new HashSet<ExamReport>();
             this.Levels = new HashSet<Level>();
             this.Questions = new HashSet<Question>();
+            this.StudentProgresses = new HashSet<StudentProgress>();
         }
     
         public int course_Id { get; set; }
@@ -26,8 +29,14 @@ namespace OnlineExaminationSystem.Models
         public Nullable<bool> status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ExamAttempt> ExamAttempts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ExamReport> ExamReports { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Level> Levels { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Question> Questions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<StudentProgress> StudentProgresses { get; set; }
     }
 }
