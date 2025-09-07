@@ -14,6 +14,11 @@ namespace MVC_OES.Controllers.Home
     {
         private readonly string baseUrl = "https://localhost:44377/api/home/";
 
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         [HttpGet]
         public ActionResult Register()
         {
@@ -115,6 +120,15 @@ namespace MVC_OES.Controllers.Home
                     return View(model);
                 }
             }
+        }
+
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            Session.Abandon();
+
+            return RedirectToAction("Login", "Main");
         }
     }
 }

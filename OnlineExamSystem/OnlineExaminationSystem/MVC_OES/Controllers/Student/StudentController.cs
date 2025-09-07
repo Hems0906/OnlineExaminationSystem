@@ -114,5 +114,43 @@ namespace MVC_OES.Controllers.Student
 
             return View(examModel);
         }
+
+        [HttpPost]
+        public async Task<ActionResult> SubmitExam(SubmitExamRequest request)
+        {
+            if (request == null)
+                return new HttpStatusCodeResult(400, "Invalid request");
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44377/api/exam/");
+                var json = JsonConvert.SerializeObject(request);
+                var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+
+                var response = await client.PostAsync("submit", content);
+                if (response.IsSuccessStatusCode)
+                {
+                    var respJson = await response.Content.ReadAsStringAsync();
+                    var report = JsonConvert.DeserializeObject<ExamReportViewModel>(respJson);
+
+                    report.courseId = request.courseId;
+                    return Json(report, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return new HttpStatusCodeResult((int)response.StatusCode, await response.Content.ReadAsStringAsync());
+                }
+            }
+        }
+
+        [HttpGet]
+        public ActionResult ReportFromSubmit(string reportJson)
+        {
+            if (string.IsNullOrEmpty(reportJson))
+                return RedirectToAction("Courses");
+
+            var report = JsonConvert.DeserializeObject<ExamReportViewModel>(reportJson);
+            return View(report);
+        }
     }
 }

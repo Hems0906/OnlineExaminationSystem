@@ -174,11 +174,14 @@
     <Compile Include="Models\Levels\LevelViewModel.cs" />
     <Compile Include="Models\Questions\QuestionModel.cs" />
     <Compile Include="Models\Questions\UploadQuestionModel.cs" />
+    <Compile Include="Models\Student\Answer.cs" />
     <Compile Include="Models\Student\CourseModel.cs" />
+    <Compile Include="Models\Student\ExamReportViewModel.cs" />
     <Compile Include="Models\Student\InstructionModel.cs" />
     <Compile Include="Models\Student\LevelViewModel.cs" />
     <Compile Include="Models\Student\QuestionModel.cs" />
     <Compile Include="Models\Student\StartExamModel.cs" />
+    <Compile Include="Models\Student\SubmitExamRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +193,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\image.jpg" />
+    <Content Include="Image\studenportal_img.png" />
+    <Content Include="Image\student.jpg" />
+    <Content Include="Image\Student_portal.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -234,6 +241,9 @@
     <Content Include="Views\Student\Courses.cshtml" />
     <Content Include="Views\Student\Instructions.cshtml" />
     <Content Include="Views\Student\StartExam.cshtml" />
+    <Content Include="Views\Student\ReportFromSubmit.cshtml" />
+    <Content Include="Views\Main\Index.cshtml" />
+    <Content Include="Views\Question\Manage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
