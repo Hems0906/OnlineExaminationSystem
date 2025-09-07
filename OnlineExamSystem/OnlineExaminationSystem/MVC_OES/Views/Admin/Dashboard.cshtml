@@ -1,11 +1,108 @@
-﻿
-@{
-    ViewBag.Title = "Dashboard";
+﻿@{
+    ViewBag.Title = "Admin Dashboard";
 }
 
-<h2>Admin Dashboard</h2>
-<p>Welcome, @Session["UserEmail"]!</p>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 
-<a href="@Url.Action("Courses", "Admin")" class="btn btn-info btn-sm">View Courses</a>
-<a href="@Url.Action("Courses", "Admin")" class="btn btn-info btn-sm">View Report</a>
+<style>
+    body {
+        background-color: #f5f7fa;
+    }
 
+    .dashboard-header {
+        margin-bottom: 20px;
+    }
+
+    .dashboard-card {
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+    }
+
+        .dashboard-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .dashboard-card i {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+    .quick-links .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .table-container {
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<div class="container mt-4">
+    <div class="dashboard-header">
+        <h2 class="fw-bold">Admin Dashboard</h2>
+        <p>Welcome, <strong>@Session["UserEmail"]</strong> 👋</p>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="dashboard-card text-center">
+                <i class="fas fa-users"></i>
+                <h5>Total Students</h5>
+                <h3>@ViewBag.TotalStudents</h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="dashboard-card text-center">
+                <i class="fas fa-book"></i>
+                <h5>Total Courses</h5>
+                <h3>@ViewBag.TotalCourses</h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="dashboard-card text-center">
+                <i class="fas fa-file-alt"></i>
+                <h5>Exams Conducted</h5>
+                <h3>@ViewBag.TotalExams</h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="dashboard-card text-center">
+                <i class="fas fa-chart-line"></i>
+                <h5>Pass Percentage</h5>
+                <h3>@ViewBag.PassPercentage%</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-3 quick-links">
+            <a href="@Url.Action("Courses", "Admin")" class="btn btn-primary">
+                <i class="fas fa-book"></i> Manage Courses
+            </a>
+        </div>
+        <div class="col-md-3 quick-links">
+            <a href="@Url.Action("Manage", "Question")" class="btn btn-info">
+                <i class="fas fa-question-circle"></i> Manage Questions
+            </a>
+        </div>
+        <div class="col-md-3 quick-links">
+            <a href="@Url.Action("Students", "Admin")" class="btn btn-warning">
+                <i class="fas fa-user-graduate"></i> View Students
+            </a>
+        </div>
+        <div class="col-md-3 quick-links">
+            <a href="@Url.Action("Reports", "Admin")" class="btn btn-warning">
+                <i class="fas fa-user-graduate"></i> View Students
+            </a>
+        </div>
+    </div>
+</div>

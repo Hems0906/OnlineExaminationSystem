@@ -16,8 +16,35 @@ namespace MVC_OES.Controllers.Admin
     {
         private readonly string baseUrl = "https://localhost:44377/api/admin/";
 
-        public ActionResult Dashboard()
+        [HttpGet]
+        public async Task<ActionResult> Dashboard()
         {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(baseUrl);
+                var response = await client.GetAsync("getdashboardstats");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var data = await response.Content.ReadAsAsync<dynamic>();
+                    ViewBag.TotalStudents = data.totalStudents;
+                    ViewBag.TotalCourses = data.totalCourses;
+                    ViewBag.TotalExams = data.totalExams;
+                    ViewBag.PassPercentage = data.passPercentage;
+                }
+                else
+                {
+                    ViewBag.TotalStudents = 0;
+                    ViewBag.TotalCourses = 0;
+                    ViewBag.TotalExams = 0;
+                    ViewBag.PassPercentage = 0;
+                    ViewBag.ErrorMessage = "Failed to fetch dashboard stats.";
+                }
+            }
+
             return View();
         }
 

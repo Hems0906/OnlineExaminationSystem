@@ -1,5 +1,7 @@
-﻿@{
-    ViewBag.Title = "Manage Courses";
+﻿@model IEnumerable<MVC_OES.Models.Questions.QuestionModel>
+
+@{
+    ViewBag.Title = "Manage Questions";
 }
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -17,10 +19,10 @@
         margin-bottom: 25px;
     }
 
-        .page-header h2 {
-            color: #007bff;
-            font-weight: 700;
-        }
+    .page-header h2 {
+        color: #007bff;
+        font-weight: 700;
+    }
 
     .add-btn {
         font-weight: bold;
@@ -47,50 +49,53 @@
         border-color: #007bff;
     }
 
-    .edit-btn, .level-btn {
+    .edit-btn {
         font-size: 0.9rem;
     }
 </style>
 
 <div class="container mt-4">
     <div class="page-header">
-        <h2><i class="fas fa-book"></i> Manage Courses</h2>
-        <a href="@Url.Action("AddCourse", "Admin")" class="btn btn-success add-btn">
-            <i class="fas fa-plus"></i> Add Course
-        </a>
+        <h2><i class="fas fa-question-circle"></i> Manage Questions</h2>
     </div>
 
     <div class="table-container">
-        @if (ViewBag.Courses != null && ViewBag.Courses.Count > 0)
+        @if (Model != null && Model.Any())
         {
             <table class="table table-striped table-hover table-bordered align-middle">
                 <thead>
                     <tr>
-                        <th>Course Name</th>
-                        <th>Levels</th>
-                        <th>Edit</th>
+                        <th>Course</th>
+                        <th>Level</th>
+                        <th>Question</th>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th>D</th>
                         <th>Status</th>
+                        <th>Edit</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var course in ViewBag.Courses)
+                    @foreach (var q in Model)
                     {
                         <tr>
-                            <td>@course.CourseName</td>
-                            <td class="text-center">
-                                <a href="@Url.Action("Levels", "Admin", new { courseId = course.CourseId })" class="btn btn-info btn-sm level-btn">
-                                    <i class="fas fa-layer-group"></i> Levels
-                                </a>
-                            </td>
-                            <td class="text-center">
-                                <a href="@Url.Action("EditCourse", "Admin", new { courseId = course.CourseId })" class="btn btn-warning btn-sm edit-btn">
-                                    <i class="fas fa-edit"></i> Edit
-                                </a>
-                            </td>
+                            <td>@q.CourseName</td>
+                            <td>@q.LevelName</td>
+                            <td>@q.QuestionText</td>
+                            <td>@q.OptionA</td>
+                            <td>@q.OptionB</td>
+                            <td>@q.OptionC</td>
+                            <td>@q.OptionD</td>
                             <td class="text-center">
                                 <div class="form-check form-switch">
-                                    <input class="form-check-input toggle-status" type="checkbox" data-id="@course.CourseId" @(course.Status ? "checked" : "") />
+                                    <input class="form-check-input toggle-question-status" type="checkbox" data-id="@q.QuestionId" @(q.Status ? "checked" : "") />
                                 </div>
+                            </td>
+                            <td class="text-center">
+                                <a href="@Url.Action("EditQuestion", "Question", new { id = q.QuestionId })" class="btn btn-warning btn-sm edit-btn">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
                             </td>
                         </tr>
                     }
@@ -100,32 +105,33 @@
         else
         {
             <div class="alert alert-info text-center">
-                No courses available. Please add a new course.
+                No questions found. Please add new questions.
             </div>
         }
     </div>
-
-    <a href="@Url.Action("Dashboard", "Admin")" class="btn btn-secondary mt-3">
-        <i class="fas fa-arrow-left"></i> Back To Dashboard
-    </a>
 </div>
 
 @section Scripts {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('.toggle-status').change(function () {
-                var courseId = $(this).data('id');
+            $('.toggle-question-status').change(function () {
+                var questionId = $(this).data('id');
                 var checkbox = $(this);
 
                 $.ajax({
-                    url: '/Admin/ToggleStatus/' + courseId,
+                    url: '@Url.Action("ToggleStatus", "Question")/' + questionId,
                     type: 'POST',
                     success: function (res) {
-                        alert(res.message);
+                        if (res.success) {
+                            alert(res.message);
+                        } else {
+                            alert(res.message);
+                            checkbox.prop('checked', !checkbox.prop('checked'));
+                        }
                     },
                     error: function () {
-                        alert('Error toggling status');
+                        alert('Error toggling question status.');
                         checkbox.prop('checked', !checkbox.prop('checked'));
                     }
                 });

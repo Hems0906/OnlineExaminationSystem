@@ -3,49 +3,65 @@
     ViewBag.Title = "Add Question";
 }
 
-<h2>Add Question - Course @Model.CourseId | Level @Model.LevelNumber</h2>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 
-@using (Html.BeginForm("AddQuestion", "Question", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-    @Html.HiddenFor(m => m.CourseId)
-    @Html.HiddenFor(m => m.LevelNumber)
+<div class="container mt-4">
+    <div class="card shadow-sm p-4">
+        <h2 class="mb-3">Add Question - Course @Model.CourseId | Level @Model.LevelNumber</h2>
 
-    <div class="mb-3">
-        @Html.LabelFor(m => m.QuestionText)
-        @Html.TextAreaFor(m => m.QuestionText, new { @class = "form-control", rows = 3 })
-        @Html.ValidationMessageFor(m => m.QuestionText)
-    </div>
+        @using (Html.BeginForm("AddQuestion", "Question", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.CourseId)
+            @Html.HiddenFor(m => m.LevelNumber)
 
-    <div class="mb-3">
-        @Html.LabelFor(m => m.OptionA)
-        @Html.TextBoxFor(m => m.OptionA, new { @class = "form-control" })
-    </div>
-    <div class="mb-3">
-        @Html.LabelFor(m => m.OptionB)
-        @Html.TextBoxFor(m => m.OptionB, new { @class = "form-control" })
-    </div>
-    <div class="mb-3">
-        @Html.LabelFor(m => m.OptionC)
-        @Html.TextBoxFor(m => m.OptionC, new { @class = "form-control" })
-    </div>
-    <div class="mb-3">
-        @Html.LabelFor(m => m.OptionD)
-        @Html.TextBoxFor(m => m.OptionD, new { @class = "form-control" })
-    </div>
+            <div class="mb-3">
+                @Html.LabelFor(m => m.QuestionText, "Question Text")
+                @Html.TextAreaFor(m => m.QuestionText, new { @class = "form-control", rows = 3, placeholder = "Enter the question here..." })
+                @Html.ValidationMessageFor(m => m.QuestionText, "", new { @class = "text-danger" })
+            </div>
 
-    <div class="mb-3">
-        @Html.LabelFor(m => m.Answer)
-        @Html.DropDownListFor(m => m.Answer,
-            new SelectList(new[] { "A", "B", "C", "D" }), "Select Correct Answer",
-            new { @class = "form-control" })
-    </div>
+            <div class="row mb-3">
+                <div class="col-md-6 mb-3">
+                    @Html.LabelFor(m => m.OptionA, "Option A")
+                    @Html.TextBoxFor(m => m.OptionA, new { @class = "form-control", placeholder = "Option A" })
+                </div>
+                <div class="col-md-6 mb-3">
+                    @Html.LabelFor(m => m.OptionB, "Option B")
+                    @Html.TextBoxFor(m => m.OptionB, new { @class = "form-control", placeholder = "Option B" })
+                </div>
+                <div class="col-md-6 mb-3">
+                    @Html.LabelFor(m => m.OptionC, "Option C")
+                    @Html.TextBoxFor(m => m.OptionC, new { @class = "form-control", placeholder = "Option C" })
+                </div>
+                <div class="col-md-6 mb-3">
+                    @Html.LabelFor(m => m.OptionD, "Option D")
+                    @Html.TextBoxFor(m => m.OptionD, new { @class = "form-control", placeholder = "Option D" })
+                </div>
+            </div>
 
-    <div class="mb-3">
-        @Html.LabelFor(m => m.Marks)
-        @Html.TextBoxFor(m => m.Marks, new { @class = "form-control", type = "number" })
-    </div>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.Answer, "Correct Answer")
+                    @Html.DropDownListFor(m => m.Answer,
+                        new SelectList(new[] { "A", "B", "C", "D" }), "Select Correct Answer",
+                        new { @class = "form-select" })
+                </div>
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.Marks, "Marks")
+                    @Html.TextBoxFor(m => m.Marks, new { @class = "form-control", type = "number", placeholder = "Enter marks for this question" })
+                </div>
+            </div>
 
-    <button type="submit" class="btn btn-primary">Add Question</button>
-    <a href="@Url.Action("GetQuestions", "Question", new { courseId = Model.CourseId, levelNumber = Model.LevelNumber })" class="btn btn-secondary">Cancel</a>
-}
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-plus-circle"></i> Add Question
+                </button>
+                <a href="@Url.Action("GetQuestions", "Question", new { courseId = Model.CourseId, levelNumber = Model.LevelNumber })" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Cancel
+                </a>
+            </div>
+        }
+    </div>
+</div>

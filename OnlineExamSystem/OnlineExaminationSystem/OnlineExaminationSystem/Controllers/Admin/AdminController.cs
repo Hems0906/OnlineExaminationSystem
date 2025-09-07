@@ -13,6 +13,34 @@ namespace OnlineExaminationSystem.Controllers.Admin
     {
         OnlineExamSystemEntities1 db = new OnlineExamSystemEntities1();
 
+        [HttpGet]
+        [Route("getdashboardstats")]
+        public IHttpActionResult GetDashboardStats()
+        {
+            try
+            {
+                var totalStudents = db.Students.Count();
+                var totalCourses = db.courses.Count();
+                var totalExams = db.ExamAttempts.Count();
+                var totalPassed = db.ExamAttempts.Count(e => e.is_passed);
+
+                var passPercentage = totalExams > 0 ? (totalPassed * 100 / totalExams) : 0;
+
+                return Ok(new
+                {
+                    totalStudents,
+                    totalCourses,
+                    totalExams,
+                    passPercentage
+                });
+
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+
         [HttpPost]
         [Route("addcourse")]
         public IHttpActionResult AddCourse([FromBody] Models.Courses.CourseModel model)

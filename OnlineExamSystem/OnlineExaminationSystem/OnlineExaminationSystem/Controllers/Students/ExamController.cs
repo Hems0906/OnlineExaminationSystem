@@ -129,7 +129,7 @@ namespace OnlineExaminationSystem.Controllers.Students
                     .ToList();
 
                 int totalMarks = questions.Sum(q => q.Marks);  
-                int score = 0;  // earned marks
+                int score = 0;  
                 int correctAnswers = 0;
 
                 var attempt = db.ExamAttempts.FirstOrDefault(a => a.attempt_id == request.attemptId);
