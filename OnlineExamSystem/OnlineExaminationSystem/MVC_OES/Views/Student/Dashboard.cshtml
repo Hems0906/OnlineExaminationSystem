@@ -1,8 +1,16 @@
 ﻿
 @{
     ViewBag.Title = "Dashboard";
+    int userId = (int)Session["UserId"];
 }
 
 <h2>Student Dashboard</h2>
 <p>Welcome, @Session["UserEmail"]!</p>
+
+
+
+<div class="mt-4">
+    <a href="@Url.Action("Courses", "Student", new { userId = userId })" class="btn btn-primary mr-2">View Courses</a>
+    <a href="@Url.Action("Reports", "Student", new { userId = userId })" class="btn btn-secondary">View Reports</a>
+</div>
 

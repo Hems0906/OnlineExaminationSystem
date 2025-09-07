@@ -87,10 +87,13 @@ namespace MVC_OES.Controllers.Home
                     {
                         var data = await response.Content.ReadAsAsync<dynamic>();
 
+                        int stuID = data.stuId;
+                        int userId = data.userId;
                         string role = data.role;
                         string email = data.email;
 
-                        // Store in session
+                        Session["StuId"] = stuID;
+                        Session["UserId"] = userId;
                         Session["UserEmail"] = email;
                         Session["UserRole"] = role;
 

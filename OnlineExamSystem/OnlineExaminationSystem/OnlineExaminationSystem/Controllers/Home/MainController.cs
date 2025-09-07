@@ -11,7 +11,7 @@ namespace OnlineExaminationSystem.Controllers.Home
     [RoutePrefix("api/home")]
     public class MainController : ApiController
     {
-        OnlineExamSystemEntities db = new OnlineExamSystemEntities();
+        OnlineExamSystemEntities1 db = new OnlineExamSystemEntities1();
         
 
         [HttpPost]
@@ -68,7 +68,7 @@ namespace OnlineExaminationSystem.Controllers.Home
                 if (user == null)
                     return BadRequest("Invalid email or password!");
 
-                return Ok(new { userId = user.user_Id, role = user.role, email = user.email });
+                return Ok(new { userId = user.user_Id, role = user.role, email = user.email, stuId = user.reference_Id });
             }
             catch (Exception ex)
             {

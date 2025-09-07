@@ -12,14 +12,14 @@ namespace OnlineExaminationSystem.Controllers.Admin
     public class QuestionController : ApiController
     {
 
-        OnlineExamSystemEntities db = new OnlineExamSystemEntities();
+        OnlineExamSystemEntities1 db = new OnlineExamSystemEntities1();
 
         [HttpGet]
         [Route("getQuestions/{courseId}/{levelNumber}")]
         public IHttpActionResult GetQuestions(int courseId, int levelNumber)
         {
             var questions = db.Questions
-                .Where(q => q.CourseId == courseId && q.LevelNumber == levelNumber && q.Status == true)
+                .Where(q => q.CourseId == courseId && q.LevelNumber == levelNumber /*&& q.Status == true*/)
                 .Select(q => new Models.Questions.QuestionModel
                 {
                     QuestionId = q.QuestionId,

@@ -1,0 +1,33 @@
+﻿@model MVC_OES.Models.Student.InstructionModel
+
+@{
+    ViewBag.Title = "Exam Instructions";
+}
+
+@if (Model == null)
+{
+    <p class="text-danger">No instructions available.</p>
+}
+else
+{
+    <div class="container mt-4">
+        <div class="card shadow-lg p-4">
+            <h2 class="mb-3">Instructions for @Model.course_name - Level @Model.level_number (@Model.level_name)</h2>
+
+            <ul class="list-group mb-3">
+                <li class="list-group-item">Total Questions: <strong>@Model.tot_ques</strong></li>
+                <li class="list-group-item">Duration: <strong>@Model.duration minutes</strong></li>
+                <li class="list-group-item">Passing Marks: <strong>@Model.passing_marks</strong></li>
+                <li class="list-group-item">Once started, the exam cannot be paused or stopped.</li>
+                <li class="list-group-item">Do not refresh or leave the page during the exam.</li>
+            </ul>
+
+            <div class="text-center">
+                <a href="@Url.Action("StartExam", "Student", new { courseId = Model.course_id, levelNumber = Model.level_number })"
+                   class="btn btn-success btn-lg">
+                    Start Exam
+                </a>
+            </div>
+        </div>
+    </div>
+}
