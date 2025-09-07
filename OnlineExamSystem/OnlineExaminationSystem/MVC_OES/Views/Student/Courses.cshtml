@@ -27,7 +27,7 @@ else
                     <div class="card-footer">
                         @if (course.CanStartExam)
                         {
-                            <a href="@Url.Action("StartExam", "Student", new { courseId = course.course_id, userId = (int)Session["UserId"], levelNumber = course.next_level })" class="btn btn-primary btn-block">
+                            <a href="@Url.Action("Instructions", "Student", new { courseId = course.course_id, userId = (int)Session["UserId"], levelNumber = course.next_level })" class="btn btn-primary btn-block">
                                 Start Exam
                             </a>
                         }

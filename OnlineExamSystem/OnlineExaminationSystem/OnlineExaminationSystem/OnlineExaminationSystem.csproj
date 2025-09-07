@@ -167,6 +167,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Home\MainController.cs" />
     <Compile Include="Controllers\Students\CoursesController.cs" />
+    <Compile Include="Controllers\Students\ExamController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -184,6 +185,8 @@
     <Compile Include="Models\ExamReport.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Exam\AnswerModel.cs" />
+    <Compile Include="Models\Exam\SubmitExamRequest.cs" />
     <Compile Include="Models\Home\StudentLogin.cs" />
     <Compile Include="Models\Home\StudentRegister.cs" />
     <Compile Include="Models\Level.cs">

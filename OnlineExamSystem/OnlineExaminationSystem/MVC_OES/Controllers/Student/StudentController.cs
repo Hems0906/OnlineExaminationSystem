@@ -29,6 +29,7 @@ namespace MVC_OES.Controllers.Student
             return View();
         }
 
+        [HttpGet]
         public async Task<ActionResult> Courses(int userId)
         {
             List<CourseModel> courses = new List<CourseModel>();
@@ -54,6 +55,64 @@ namespace MVC_OES.Controllers.Student
             }
 
             return View(courses);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Instructions(int courseId, int levelNumber)
+        {
+            InstructionModel instruction = null;
+
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            ServicePointManager.ServerCertificateValidationCallback +=
+                (sender, cert, chain, sslPolicyErrors) => true;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44377/api/exam/");
+                var response = await client.GetAsync($"instructions/{courseId}/{levelNumber}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    instruction = JsonConvert.DeserializeObject<InstructionModel>(json);
+                }
+                else
+                {
+                    ViewBag.Error = "Could not load instructions.";
+                }
+            }
+
+            return View(instruction);
+        }
+
+
+        public async Task<ActionResult> StartExam(int courseId, int levelNumber)
+        {
+            var userId = (int)Session["UserId"];
+            StartExamModel examModel = null;
+
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            ServicePointManager.ServerCertificateValidationCallback +=
+                (sender, cert, chain, sslPolicyErrors) => true;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44377/api/exam/");
+
+                var response = await client.GetAsync($"start/{userId}/{courseId}/{levelNumber}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    examModel = JsonConvert.DeserializeObject<StartExamModel>(json);
+                }
+                else
+                {
+                    ViewBag.Error = "Could not load exam questions.";
+                }
+            }
+
+            return View(examModel);
         }
     }
 }

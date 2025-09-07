@@ -48,7 +48,7 @@ Create table Levels(level_id int identity(1,1) primary key,
 
 create table Questions(QuestionId int identity(1,1) primary key,
 						CourseId int foreign key references courses(course_id),
-						LevelNumber int foreign key references Levels(level_id),
+						LevelNumber int foreign key references Levels(Level_id),
 						QuestionText nvarchar(max) not null,
 						OptionA nvarchar(200) not null,
 						OptionB nvarchar(200) not null,
@@ -114,6 +114,10 @@ select * from Student
 select * from courses
 select * from Levels
 select * from Questions
+select * from ExamAttempts
+select * from UserAnswers
+select * from StudentProgress
+select * from ExamReports
 
 drop table ExamReports
 drop table StudentProgress
