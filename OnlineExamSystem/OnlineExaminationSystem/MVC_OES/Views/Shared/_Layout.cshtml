@@ -251,7 +251,7 @@ else
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     @if (role == null)
-{
+                    {
                         <li class="nav-item">
                             <a class="nav-link" href="@Url.Action("Login", "Main")">
                                 <i class="fas fa-sign-in-alt"></i> Login
@@ -262,11 +262,45 @@ else
                                 <i class="fas fa-user-plus"></i> Register
                             </a>
                         </li>
-}
-else if (role == "admin")
-{
+                    }
+                    else if (role == "admin")
+                    {
                         <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Profile", "Admin")">
+                <a class="nav-link" href="@Url.Action("ProfileDetails", "Admin")">
+                    <i class="fas fa-user-circle"></i> Profile
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Logout", "Main")">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </li>
+                        @*<li class="nav-item dropdown ms-auto">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="profileDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user-circle fa-lg me-1"></i>
+                                <span>@Session["UserName"]</span> 
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="profileDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="@Url.Action("ProfileDetails", "Admin")">
+                                        <i class="fas fa-user"></i> My Profile
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li>
+                                    <a class="dropdown-item text-danger" href="@Url.Action("Logout", "Main")">
+                                        <i class="fas fa-sign-out-alt"></i> Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>*@
+
+                    }
+                    else if (role == "student")
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("StudentProfileDetails", "Profile")">
                                 <i class="fas fa-user-circle"></i> Profile
                             </a>
                         </li>
@@ -275,20 +309,7 @@ else if (role == "admin")
                                 <i class="fas fa-sign-out-alt"></i> Logout
                             </a>
                         </li>
-}
-else if (role == "student")
-{
-                        <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Profile", "Student")">
-                                <i class="fas fa-user-circle"></i> Profile
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Logout", "Main")">
-                                <i class="fas fa-sign-out-alt"></i> Logout
-                            </a>
-                        </li>
-}
+                    }
                 </ul>
             </div>
         </div>

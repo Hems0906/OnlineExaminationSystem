@@ -101,13 +101,23 @@ create table ExamReports(report_id int identity(1,1) primary key,
 							total_time int not null,
 							time_taken int not null)
 
+--Creating Table UserOTP
+
+create table UserOTP (
+    otp_id int identity(1,1) primary key,
+    user_id int not null,
+    otp nvarchar(6) not null,
+    created_at datetime default getdate(),
+    is_used bit default 0,
+    foreign key (user_id) references Users(user_Id)
+)
+
 
 
 insert into Admin(admin_name, phone, address) values ('Admin_Rahul', '9876543210', 'New York, USA')
 
 insert into Users(email, password, role, reference_Id) values ('admin123@gmail.com', 'Admin@123', 'admin', 1)
 
-insert into courses (course_name) values ('R')
 select * from Admin
 select * from Users
 select * from Student
@@ -118,6 +128,7 @@ select * from ExamAttempts
 select * from UserAnswers
 select * from StudentProgress
 select * from ExamReports
+select * from UserOTP
 
 drop table ExamReports
 drop table StudentProgress

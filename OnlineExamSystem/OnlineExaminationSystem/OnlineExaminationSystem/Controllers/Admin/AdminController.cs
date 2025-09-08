@@ -11,7 +11,7 @@ namespace OnlineExaminationSystem.Controllers.Admin
     [RoutePrefix("api/admin")]
     public class AdminController : ApiController
     {
-        OnlineExamSystemEntities1 db = new OnlineExamSystemEntities1();
+        OnlineExamSystemEntities2 db = new OnlineExamSystemEntities2();
 
         [HttpGet]
         [Route("getdashboardstats")]
@@ -200,34 +200,6 @@ namespace OnlineExaminationSystem.Controllers.Admin
             return Ok(level);
         }
 
-
-        //[HttpPut]
-        //[Route("editlevel/{levelId}")]
-        //public IHttpActionResult EditLevel(int levelId, [FromBody] Models.Levels.LevelsModel model)
-        //{
-        //    if (model == null)
-        //        return BadRequest("Level data is required.");
-
-        //    var level = db.Levels.FirstOrDefault(l => l.level_id == levelId);
-
-        //    if (level == null)
-        //        return NotFound();
-
-        //    level.level_number = model.LevelNumber;
-        //    level.level_name = model.LevelName;
-        //    level.passing_marks = model.PassingMarks;
-        //    level.tot_ques = model.TotalQuestions;
-        //    level.duration = model.Duration;
-
-        //    db.SaveChanges();
-
-        //    return Ok(new
-        //    {
-        //        message = "Level updated successfully",
-        //        LevelId = levelId
-        //    });
-        //}
-
         [HttpPut]
         [Route("editlevel/{courseId}/{levelNumber}")]
         public IHttpActionResult EditLevelByNumber(int courseId, int levelNumber, [FromBody] Models.Levels.LevelsModel model)
@@ -255,6 +227,54 @@ namespace OnlineExaminationSystem.Controllers.Admin
                 CourseId = courseId,
                 LevelNumber = levelNumber
             });
+        }
+
+        [HttpGet]
+        [Route("profile/get")]
+        public IHttpActionResult GetProfile(int id)
+        {
+            var user = db.Users.FirstOrDefault(u => u.user_Id == id && u.role == "admin");
+            if (user == null)
+                return Content(HttpStatusCode.NotFound, "User not found");
+
+            var admin = db.Admins.FirstOrDefault(a => a.admin_id == user.reference_Id);
+            if (admin == null)
+                return Content(HttpStatusCode.NotFound, "Admin profile not found");
+
+            var result = new Models.Profile.AdminProfileDto
+            {
+                AdminName = admin.admin_name,
+                Phone = admin.phone,
+                Address = admin.address,
+                Email = user.email
+            };
+
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("students")]
+        public IHttpActionResult GetAllStudents()
+        {
+            var students = db.Students
+                .Select(s => new
+                {
+                    s.stu_id,
+                    s.stu_name,
+                    s.mobile,
+                    s.city,
+                    s.State,
+                    s.DOB,
+                    s.Qualification,
+                    s.Completion,
+                    Email = db.Users
+                              .Where(u => u.reference_Id == s.stu_id)
+                              .Select(u => u.email)
+                              .FirstOrDefault()
+                })
+                .ToList();
+
+            return Ok(students);
         }
     }
 }

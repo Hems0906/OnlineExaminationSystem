@@ -165,9 +165,11 @@
     <Compile Include="Controllers\Admin\AdminController.cs" />
     <Compile Include="Controllers\Admin\QuestionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Home\AuthApiController.cs" />
     <Compile Include="Controllers\Home\MainController.cs" />
     <Compile Include="Controllers\Students\CoursesController.cs" />
     <Compile Include="Controllers\Students\ExamController.cs" />
+    <Compile Include="Controllers\Students\ProfileController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -187,8 +189,11 @@
     </Compile>
     <Compile Include="Models\Exam\AnswerModel.cs" />
     <Compile Include="Models\Exam\SubmitExamRequest.cs" />
+    <Compile Include="Models\Home\ForgotPasswordRequest.cs" />
+    <Compile Include="Models\Home\ResetPasswordRequest.cs" />
     <Compile Include="Models\Home\StudentLogin.cs" />
     <Compile Include="Models\Home\StudentRegister.cs" />
+    <Compile Include="Models\Home\VerifyOtpRequest.cs" />
     <Compile Include="Models\Level.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -208,6 +213,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Profile\AdminProfileDto.cs" />
+    <Compile Include="Models\Profile\StudentProfileDto.cs" />
     <Compile Include="Models\Question.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -222,6 +229,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserAnswer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserOTP.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -296,6 +306,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
