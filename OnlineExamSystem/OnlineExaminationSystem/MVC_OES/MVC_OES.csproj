@@ -177,6 +177,7 @@
     <Compile Include="Models\Student\Answer.cs" />
     <Compile Include="Models\Student\CourseModel.cs" />
     <Compile Include="Models\Student\ExamReportViewModel.cs" />
+    <Compile Include="Models\Student\ExamResultViewModel.cs" />
     <Compile Include="Models\Student\InstructionModel.cs" />
     <Compile Include="Models\Student\LevelViewModel.cs" />
     <Compile Include="Models\Student\QuestionModel.cs" />
@@ -243,7 +244,7 @@
     <Content Include="Views\Student\StartExam.cshtml" />
     <Content Include="Views\Student\ReportFromSubmit.cshtml" />
     <Content Include="Views\Main\Index.cshtml" />
-    <Content Include="Views\Question\Manage.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -152,5 +152,33 @@ namespace MVC_OES.Controllers.Student
             var report = JsonConvert.DeserializeObject<ExamReportViewModel>(reportJson);
             return View(report);
         }
+
+        [HttpGet]
+        public async Task<ActionResult> Index(int userId)
+        {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            ServicePointManager.ServerCertificateValidationCallback += (s, c, ch, e) => true;
+
+            List<ExamResultViewModel> results = new List<ExamResultViewModel>();
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(baseUrl);
+
+                var response = await client.GetAsync($"getresults/{userId}");
+                var raw = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    results = JsonConvert.DeserializeObject<List<ExamResultViewModel>>(raw);
+                }
+                else
+                {
+                    ViewBag.Error = "Unable to fetch results.";
+                }
+            }
+
+            return View(results);
+        }
     }
 }

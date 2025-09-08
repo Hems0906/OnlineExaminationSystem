@@ -40,28 +40,6 @@ namespace OnlineExaminationSystem.Controllers.Admin
             return Ok(questions);
         }
 
-        [HttpGet]
-        [Route("questions")]
-        public IHttpActionResult GetQuestions()
-        {
-            var questions = db.Questions
-                .Select(q => new
-                {
-                    q.QuestionId,
-                    CourseName = q.cours.course_name,
-                    LevelName = q.Level.level_name,
-                    q.QuestionText,
-                    q.OptionA,
-                    q.OptionB,
-                    q.OptionC,
-                    q.OptionD,
-                    q.Status
-                })
-                .ToList();
-
-            return Ok(questions);
-        }
-
 
         [HttpPost]
         [Route("addQuestion/{cid}/{lid}")]

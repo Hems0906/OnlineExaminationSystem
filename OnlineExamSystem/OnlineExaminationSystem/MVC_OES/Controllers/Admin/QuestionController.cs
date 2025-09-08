@@ -49,37 +49,6 @@ namespace MVC_OES.Controllers.Admin
             return View(questions);
         }
 
-        public async Task<ActionResult> Manage()
-        {
-            List<QuestionModel> questions = new List<QuestionModel>();
-
-            try
-            {
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-                ServicePointManager.ServerCertificateValidationCallback += (s, c, ch, e) => true;
-
-                using (var client = new HttpClient())
-                {
-                    client.BaseAddress = new Uri(baseUrl);
-                    var response = await client.GetAsync("questions");
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        questions = await response.Content.ReadAsAsync<List<QuestionModel>>();
-                    }
-                    else
-                    {
-                        ViewBag.ErrorMessage = "Failed to fetch questions from API.";
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                ViewBag.ErrorMessage = "Error: " + ex.Message;
-            }
-
-            return View(questions);
-        }
 
         [HttpPost]
         public async Task<JsonResult> ToggleStatus(int id)

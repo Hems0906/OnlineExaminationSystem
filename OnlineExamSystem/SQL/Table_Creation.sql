@@ -107,7 +107,7 @@ insert into Admin(admin_name, phone, address) values ('Admin_Rahul', '9876543210
 
 insert into Users(email, password, role, reference_Id) values ('admin123@gmail.com', 'Admin@123', 'admin', 1)
 
-
+insert into courses (course_name) values ('R')
 select * from Admin
 select * from Users
 select * from Student
@@ -126,4 +126,3 @@ drop table ExamAttempts
 drop table Questions
 drop table Levels
 drop table courses
-
