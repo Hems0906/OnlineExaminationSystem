@@ -75,5 +75,52 @@ namespace OnlineExaminationSystem.Controllers.Students
                 return InternalServerError(ex);
             }
         }
+
+        [HttpGet]
+        [Route("getresults/{userId}")]
+        public IHttpActionResult GetResults(int userId)
+        {
+            try
+            {
+                var user = db.Users.FirstOrDefault(u => u.user_Id == userId);
+                if (user == null)
+                    return NotFound();
+
+                if (user.role.ToLower() == "student")
+                {
+                    var stu = db.Students.FirstOrDefault(s => s.stu_id == user.reference_Id);
+                    if (stu == null)
+                        return NotFound();
+                }
+                else if (user.role.ToLower() == "admin")
+                {
+                    var adm = db.Admins.FirstOrDefault(a => a.admin_id == user.reference_Id);
+                    if (adm == null)
+                        return NotFound();
+                }
+
+                var reports = (from er in db.ExamReports
+                               join c in db.courses on er.course_id equals c.course_Id
+                               join l in db.Levels on er.level_number equals l.level_id
+                               where er.user_id == userId
+                               select new
+                               {
+                                   Course = c.course_name,
+                                   Level = l.level_name,
+                                   TotalMarks = er.total_marks,
+                                   PassingMarks = er.passing_marks,
+                                   Score = er.score,
+                                   Result = er.is_passed ? "Pass" : "Fail",
+                                   TotalTime = er.total_time,
+                                   TimeTaken = er.time_taken
+                               }).ToList();
+
+                return Ok(reports);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
     }
 }

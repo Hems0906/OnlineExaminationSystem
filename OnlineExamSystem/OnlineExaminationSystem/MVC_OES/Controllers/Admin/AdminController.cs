@@ -194,8 +194,6 @@ namespace MVC_OES.Controllers.Admin
             }
         }
 
-
-
         [HttpGet]
         public ActionResult AddLevels(int courseId)
         {
@@ -262,30 +260,6 @@ namespace MVC_OES.Controllers.Admin
             return View(levels);
         }
 
-        //[HttpGet]
-        //public async Task<ActionResult> EditLevel(int courseId, int levelNumber)
-        //{
-        //    Models.Levels.LevelViewModel level = null;
-
-        //    using (var client = new HttpClient())
-        //    {
-        //        client.BaseAddress = new Uri(baseUrl);
-        //        var response = await client.GetAsync($"getlevel/{courseId}/{levelNumber}");
-
-        //        if (response.IsSuccessStatusCode)
-        //        {
-        //            level = await response.Content.ReadAsAsync<Models.Levels.LevelViewModel>();
-        //        }
-        //    }
-
-        //    if (level == null)
-        //        return RedirectToAction("Levels", new { courseId });
-
-        //    level.CourseId = courseId;
-        //    level.LevelNumber = levelNumber;
-
-        //    return View(level);
-        //}
 
         [HttpGet]
         public async Task<ActionResult> EditLevel(int courseId, int levelNumber)
@@ -298,7 +272,6 @@ namespace MVC_OES.Controllers.Admin
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 ServicePointManager.ServerCertificateValidationCallback += (s, c, ch, e) => true;
 
-                // Call the API to get the level data
                 var response = await client.GetAsync($"getlevel/{courseId}/{levelNumber}");
 
                 if (response.IsSuccessStatusCode)
@@ -317,25 +290,6 @@ namespace MVC_OES.Controllers.Admin
         }
 
 
-        //[HttpPost]
-        //public async Task<ActionResult> EditLevel(Models.Levels.LevelViewModel model)
-        //{
-        //    if (!ModelState.IsValid)
-        //        return View(model);
-
-        //    using (var client = new HttpClient())
-        //    {
-        //        client.BaseAddress = new Uri(baseUrl);
-        //        var response = await client.PutAsJsonAsync($"editlevel/{model.CourseId}/{model.LevelNumber}", model);
-
-        //        if (response.IsSuccessStatusCode)
-        //            return RedirectToAction("Levels", new { courseId = model.CourseId });
-        //    }
-
-        //    ViewBag.ErrorMessage = "Failed to update level.";
-        //    return View(model);
-        //}
-
         [HttpPost]
         public async Task<ActionResult> EditLevel(Models.Levels.LevelViewModel model)
         {
@@ -348,7 +302,6 @@ namespace MVC_OES.Controllers.Admin
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 ServicePointManager.ServerCertificateValidationCallback += (s, c, ch, e) => true;
 
-                // Call API to update the level
                 var response = await client.PutAsJsonAsync($"editlevel/{model.CourseId}/{model.LevelNumber}", model);
 
                 if (response.IsSuccessStatusCode)
