@@ -11,7 +11,7 @@ namespace OnlineExaminationSystem.Controllers.Home
     [RoutePrefix("api/home")]
     public class MainController : ApiController
     {
-        OnlineExamSystemEntities1 db = new OnlineExamSystemEntities1();
+        OnlineExamSystemEntities2 db = new OnlineExamSystemEntities2();
         
 
         [HttpPost]

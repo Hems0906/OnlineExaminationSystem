@@ -7,12 +7,14 @@ using MVC_OES.Models.Home;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Http;
+using MVC_OES.Services;
 
 namespace MVC_OES.Controllers.Home
 {
     public class MainController : Controller
     {
         private readonly string baseUrl = "https://localhost:44377/api/home/";
+        private readonly CaptchaService _captchaService = new CaptchaService();
 
         public ActionResult Index()
         {
@@ -22,6 +24,7 @@ namespace MVC_OES.Controllers.Home
         [HttpGet]
         public ActionResult Register()
         {
+            ViewBag.CaptchaCode = _captchaService.GenerateCaptcha();
             return View();
         }
 
@@ -29,7 +32,17 @@ namespace MVC_OES.Controllers.Home
         public async Task<ActionResult> Register(StudentRegister model)
         {
             if (!ModelState.IsValid)
+            {
+                ViewBag.CaptchaCode = _captchaService.GenerateCaptcha();
                 return View(model);
+            }
+
+            if (!_captchaService.ValidateCaptcha(model.CaptchaInput))
+            {
+                ViewBag.ErrorMessage = "Invalid captcha.";
+                ViewBag.CaptchaCode = _captchaService.GenerateCaptcha();
+                return View(model);
+            }
 
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             ServicePointManager.ServerCertificateValidationCallback +=

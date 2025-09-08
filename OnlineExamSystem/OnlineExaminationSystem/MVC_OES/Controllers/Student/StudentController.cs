@@ -152,5 +152,7 @@ namespace MVC_OES.Controllers.Student
             var report = JsonConvert.DeserializeObject<ExamReportViewModel>(reportJson);
             return View(report);
         }
+
+        
     }
 }

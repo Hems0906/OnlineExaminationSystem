@@ -100,31 +100,57 @@
         <!-- Registration Form -->
         @using (Html.BeginForm("Register", "Main", FormMethod.Post))
         {
+           
             <!-- Student Name -->
             <div class="form-group">
                 <i class="fas fa-user input-icon"></i>
-                @Html.TextBoxFor(m => m.StuName, new { @class = "form-control", placeholder = "Enter your full name" })
+                @Html.TextBoxFor(m => m.StuName, new
+                {
+                    @class = "form-control",
+                    placeholder = "Enter your full name",
+                    maxlength = "100",
+                    oninput = "this.value = this.value.replace(/[^a-zA-Z\\s]/g, '')"
+                })
                 @Html.ValidationMessageFor(m => m.StuName, "", new { @class = "text-danger" })
             </div>
+
 
             <!-- Mobile -->
             <div class="form-group">
                 <i class="fas fa-phone input-icon"></i>
-                @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", placeholder = "Enter your mobile number" })
+                @Html.TextBoxFor(m => m.Mobile, new
+                {
+                    @class = "form-control",
+                    placeholder = "Enter your mobile number",
+                    maxlength = "10",
+                    oninput = "this.value = this.value.replace(/[^0-9]/g, '')"
+                })
                 @Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "text-danger" })
             </div>
 
             <!-- City -->
             <div class="form-group">
                 <i class="fas fa-city input-icon"></i>
-                @Html.TextBoxFor(m => m.City, new { @class = "form-control", placeholder = "Enter your city" })
+                @Html.TextBoxFor(m => m.City, new
+                {
+                    @class = "form-control",
+                    placeholder = "Enter your city",
+                    maxlength = "50",
+                    oninput = "this.value = this.value.replace(/[^a-zA-Z\\s]/g, '')"
+                })
                 @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
             </div>
 
             <!-- State -->
             <div class="form-group">
                 <i class="fas fa-map-marker-alt input-icon"></i>
-                @Html.TextBoxFor(m => m.State, new { @class = "form-control", placeholder = "Enter your state" })
+                @Html.TextBoxFor(m => m.State, new
+                {
+                    @class = "form-control",
+                    placeholder = "Enter your state",
+                    maxlength = "50",
+                    oninput = "this.value = this.value.replace(/[^a-zA-Z\\s]/g, '')"
+                })
                 @Html.ValidationMessageFor(m => m.State, "", new { @class = "text-danger" })
             </div>
 
@@ -170,6 +196,17 @@
                 @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
             </div>
 
+            <!-- Captcha Section -->
+            <div class="form-group">
+                <label>Enter Captcha</label>
+                <div style="font-weight:bold; font-size:20px; background:#f0f0f0; padding:10px; display:inline-block;">
+                    @ViewBag.CaptchaCode
+                </div>
+
+                @Html.TextBoxFor(m => m.CaptchaInput, new { @class = "form-control", placeholder = "Enter captcha here" })
+                @Html.ValidationMessageFor(m => m.CaptchaInput)
+            </div>
+
             <!-- Submit Button -->
             <button type="submit" class="btn btn-register btn-lg">
                 <i class="fas fa-user-plus"></i> Register
@@ -182,3 +219,79 @@
         </div>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            let inputs = $(".form-group input");
+            let btn = $(".btn-register");
+
+            inputs.prop("disabled", true).css("background-color", "#f5f5f5");
+            inputs.first().prop("disabled", false).css("background-color", "");
+
+            btn.prop("disabled", true).css("opacity", "0.5");
+
+            function validateInputs() {
+                let allFilled = true;
+                inputs.each(function () {
+                    if ($(this).val().trim() === "") {
+                        allFilled = false;
+                        return false;
+                    }
+                });
+
+                if (allFilled) {
+                    btn.prop("disabled", false).css("opacity", "1");
+                } else {
+                    btn.prop("disabled", true).css("opacity", "0.5");
+                }
+            }
+
+            inputs.on("input", function () {
+                let currentIndex = inputs.index(this);
+
+                if ($(this).val().trim() !== "") {
+                    if (currentIndex + 1 < inputs.length) {
+                        inputs.eq(currentIndex + 1).prop("disabled", false).css("background-color", "");
+                    }
+                }
+
+                validateInputs();
+            });
+
+            validateInputs();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("form").removeData("validator");
+            $("form").removeData("unobtrusiveValidation");
+            $.validator.unobtrusive.parse("form");
+
+
+            $("form input").on("input", function () {
+                $(this).valid();
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            // Allow only alphabets + space
+            $("#City, #State").on("keypress", function (e) {
+                let char = String.fromCharCode(e.which);
+                if (!/^[a-zA-Z\s]$/.test(char)) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+
+
+}

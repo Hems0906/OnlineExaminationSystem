@@ -13,16 +13,19 @@
         }
 
         .dashboard-bg {
-            background-image: url('@Url.Content("~/Image/image.jpg")');
-            background-size: cover;
-            background-position: center;
+            background-image: url('@Url.Content("~/Image/Dashboard.jpg")');
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
             height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
             color: #fff;
             text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+            text-align: center;
+            padding: 20px;
         }
 
         .dashboard-buttons .btn {
@@ -49,7 +52,7 @@
             <a href="@Url.Action("Courses", "Student", new { userId = userId })" class="btn btn-primary">
                 View Courses
             </a>
-            <a href="@Url.Action("Reports", "Student", new { userId = userId })" class="btn btn-secondary">
+            <a href="@Url.Action("Reports", "Student", new { userId = userId })" class="btn btn-primary">
                 View Reports
             </a>
         </div>
