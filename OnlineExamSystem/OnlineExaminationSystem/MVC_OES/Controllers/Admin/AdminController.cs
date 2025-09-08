@@ -314,5 +314,51 @@ namespace MVC_OES.Controllers.Admin
             ViewBag.ErrorMessage = "Failed to update level.";
             return View(model);
         }
+
+        public async Task<ActionResult> ProfileDetails()
+        {
+            int userId = Convert.ToInt32(Session["UserId"]);
+            Models.Profile.AdminProfileDto admin = null;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44377/api/admin/");
+                var response = await client.GetAsync($"profile/get?id={userId}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    admin = await response.Content.ReadAsAsync<Models.Profile.AdminProfileDto>();
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "Unable to fetch admin profile.";
+                    return RedirectToAction("Dashboard", "Admin");
+                }
+            }
+
+            return View("AdminProfileDetails", admin);
+        }
+
+        public async Task<ActionResult> AllStudents()
+        {
+            List<Models.Student.StudentDto> students = new List<Models.Student.StudentDto>();
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(baseUrl);
+                var response = await client.GetAsync("students");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    students = await response.Content.ReadAsAsync<List<Models.Student.StudentDto>>();
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "Unable to fetch students.";
+                }
+            }
+
+            return View(students);
+        }
     }
 }

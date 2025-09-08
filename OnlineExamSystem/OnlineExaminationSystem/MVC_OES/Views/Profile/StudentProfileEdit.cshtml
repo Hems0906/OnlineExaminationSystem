@@ -1,0 +1,73 @@
+﻿@model MVC_OES.Models.Profile.StudentProfileDto
+
+@{
+    ViewBag.Title = "Edit Profile";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container mt-4">
+    <div class="card shadow-lg p-4">
+        <h2 class="text-primary mb-4">✏️ Edit Profile</h2>
+
+        @using (Html.BeginForm("StudentProfileEdit", "Profile", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="mb-3">
+                @Html.LabelFor(m => m.stu_name)
+                @Html.TextBoxFor(m => m.stu_name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.stu_name, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(m => m.email)
+                @Html.TextBoxFor(m => m.email, new { @class = "form-control", type = "email" })
+                @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(m => m.mobile)
+                @Html.TextBoxFor(m => m.mobile, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.mobile, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(m => m.city)
+                @Html.TextBoxFor(m => m.city, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.city, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(m => m.State)
+                @Html.TextBoxFor(m => m.State, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.State, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(m => m.DOB)
+                @Html.TextBoxFor(m => m.DOB, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                @Html.ValidationMessageFor(m => m.DOB, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Qualification)
+                @Html.TextBoxFor(m => m.Qualification, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Qualification, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Completion)
+                @Html.TextBoxFor(m => m.Completion, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Completion, "", new { @class = "text-danger" })
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">💾 Save Changes</button>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+}

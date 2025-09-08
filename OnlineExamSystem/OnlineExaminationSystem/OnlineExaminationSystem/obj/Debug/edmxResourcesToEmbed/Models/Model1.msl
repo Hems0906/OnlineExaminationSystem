@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="OnlineExamSystemModelStoreContainer" CdmEntityContainer="OnlineExamSystemEntities1">
+  <EntityContainerMapping StorageEntityContainer="OnlineExamSystemModelStoreContainer" CdmEntityContainer="OnlineExamSystemEntities2">
     <EntitySetMapping Name="Admins">
       <EntityTypeMapping TypeName="OnlineExamSystemModel.Admin">
         <MappingFragment StoreEntitySet="Admin">
@@ -116,6 +116,17 @@
           <ScalarProperty Name="question_id" ColumnName="question_id" />
           <ScalarProperty Name="selected_option" ColumnName="selected_option" />
           <ScalarProperty Name="is_correct" ColumnName="is_correct" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserOTPs">
+      <EntityTypeMapping TypeName="OnlineExamSystemModel.UserOTP">
+        <MappingFragment StoreEntitySet="UserOTP">
+          <ScalarProperty Name="otp_id" ColumnName="otp_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="otp" ColumnName="otp" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="is_used" ColumnName="is_used" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

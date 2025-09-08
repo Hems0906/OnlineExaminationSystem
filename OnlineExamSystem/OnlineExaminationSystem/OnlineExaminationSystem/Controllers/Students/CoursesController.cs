@@ -11,7 +11,7 @@ namespace OnlineExaminationSystem.Controllers.Students
     [RoutePrefix("api/courses")]
     public class CoursesController : ApiController
     {
-        OnlineExamSystemEntities1 db = new OnlineExamSystemEntities1();
+        OnlineExamSystemEntities2 db = new OnlineExamSystemEntities2();
 
         [HttpGet]
         [Route("getcourses/{userId}")]

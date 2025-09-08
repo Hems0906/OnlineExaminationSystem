@@ -1,0 +1,133 @@
+﻿@model List<MVC_OES.Models.Student.StudentDto>
+
+@{
+    ViewBag.Title = "All Students";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+<style>
+    body {
+        background-color: #eef2f7;
+    }
+
+    .students-container {
+        padding: 40px 0;
+    }
+
+    .students-card {
+        background: #fff;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+        .students-card h2 {
+            color: #0d6efd;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+    .back-btn {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        background: #0d6efd;
+        color: #fff;
+        border-radius: 50px;
+        padding: 10px 20px;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+        .back-btn:hover {
+            background: #0b5ed7;
+            text-decoration: none;
+        }
+
+    .table thead {
+        background: linear-gradient(90deg, #0d6efd, #6610f2);
+        color: #fff;
+        font-weight: 600;
+    }
+
+
+        .table tbody tr:hover {
+            background-color: #f0f4ff;
+        }
+
+    .table td, .table th {
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .icon {
+        margin-right: 5px;
+        color: #0d6efd;
+    }
+</style>
+
+<div class="container students-container">
+    <div class="students-card mx-auto">
+        <h2>All Students</h2>
+
+        <a href="@Url.Action("Dashboard", "Admin")" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Dashboard
+        </a>
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger mt-3">@TempData["ErrorMessage"]</div>
+        }
+
+        <div class="table-responsive mt-4">
+            <table class="table table-hover table-bordered align-middle">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th><i class="fas fa-user icon"></i>Name</th>
+                        <th><i class="fas fa-envelope icon"></i>Email</th>
+                        <th><i class="fas fa-phone icon"></i>Mobile</th>
+                        <th><i class="fas fa-city icon"></i>City</th>
+                        <th><i class="fas fa-map-marker-alt icon"></i>State</th>
+                        <th><i class="fas fa-birthday-cake icon"></i>DOB</th>
+                        <th><i class="fas fa-graduation-cap icon"></i>Qualification</th>
+                        <th><i class="fas fa-check-circle icon"></i>Completion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Count > 0)
+                    {
+                        int i = 1;
+                        foreach (var student in Model)
+                        {
+                    <tr>
+                        <td>@student.stu_id</td>
+                        <td>@student.stu_name</td>
+                        <td>@student.Email</td>
+                        <td>@student.mobile</td>
+                        <td>@student.city</td>
+                        <td>@student.State</td>
+                        <td>@student.DOB.ToString("dd-MM-yyyy")</td>
+                        <td>@student.Qualification</td>
+                        <td>@student.Completion</td>
+                    </tr>
+                            i++;
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="9" class="text-center text-muted">No students found.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>

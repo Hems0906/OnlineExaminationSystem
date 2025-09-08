@@ -1,0 +1,32 @@
+﻿@model MVC_OES.Models.Profile.StudentProfileDto
+
+@{
+    ViewBag.Title = "Profile Details";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container mt-4">
+    <div class="card shadow-lg p-4">
+        <h2 class="text-primary mb-4">👤 My Profile</h2>
+        <table class="table table-bordered">
+            <tbody>
+                <tr><th>Name</th><td>@Model.stu_name</td></tr>
+                <tr><th>Email</th><td>@Model.email</td></tr>
+                <tr><th>Mobile</th><td>@Model.mobile</td></tr>
+                <tr><th>City</th><td>@Model.city</td></tr>
+                <tr><th>State</th><td>@Model.State</td></tr>
+                <tr><th>DOB</th><td>@(Model.DOB.HasValue ? Model.DOB.Value.ToString("dd-MM-yyyy") : "N/A")</td></tr>
+                <tr><th>Qualification</th><td>@Model.Qualification</td></tr>
+                <tr><th>Completion Year</th><td>@Model.Completion</td></tr>
+            </tbody>
+        </table>
+        <a href="@Url.Action("StudentProfileEdit", "Profile")" class="btn btn-primary w-100">✏️ Edit Profile</a>
+        <div class="text-center mt-4">
+            <a href="@Url.Action("Dashboard", "Student", new { id = Session["UserId"] })"
+               class="btn btn-secondary">
+                ← Back to Dashboard
+            </a>
+        </div>
+    </div>
+</div>
