@@ -101,13 +101,11 @@
         <h2>Login</h2>
         <p class="text-center text-muted mb-4">Welcome back! Please login to continue.</p>
 
-        <!-- Error Message -->
         @if (ViewBag.ErrorMessage != null)
         {
             <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
         }
 
-        <!-- Login Form -->
         @using (Html.BeginForm("Login", "Main", FormMethod.Post))
         {
             <div class="form-group">
@@ -131,9 +129,39 @@
             </button>
         }
 
-        <!-- Register Redirect -->
         <div class="register-link">
             <p>Don't have an account? <a href="@Url.Action("Register", "Main")">Register Here</a></p>
         </div>
     </div>
 </div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("form").removeData("validator");
+            $("form").removeData("unobtrusiveValidation");
+            $.validator.unobtrusive.parse("form");
+
+            $("#Email, #Password").on("input", function () {
+                $(this).valid();
+            });
+
+            var btn = $("#btnLogin");
+            function checkFormValidity() {
+                if ($("#loginForm").valid()) {
+                    btn.prop("disabled", false).css("opacity", "1");
+                } else {
+                    btn.prop("disabled", true).css("opacity", "0.5");
+                }
+            }
+
+            $("#loginForm input").on("input", checkFormValidity);
+            checkFormValidity();
+        });
+    </script>
+}

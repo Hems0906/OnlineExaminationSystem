@@ -184,6 +184,7 @@
     <Compile Include="Models\Student\StartExamModel.cs" />
     <Compile Include="Models\Student\SubmitExamRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CaptchaService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
