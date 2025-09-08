@@ -1,3 +1,5 @@
+DROP DATABASE OnlineExamSystem
+
 create database OnlineExamSystem
 
 use OnlineExamSystem
@@ -107,6 +109,15 @@ insert into Admin(admin_name, phone, address) values ('Admin_Rahul', '9876543210
 
 insert into Users(email, password, role, reference_Id) values ('admin123@gmail.com', 'Admin@123', 'admin', 1)
 
+create table UserOTP (
+    otp_id int identity(1,1) primary key,
+    user_id int not null,
+    otp nvarchar(6) not null,
+    created_at datetime default getdate(),
+    is_used bit default 0,
+    foreign key (user_id) references Users(user_Id)
+);
+
 
 select * from Admin
 select * from Users
@@ -118,6 +129,7 @@ select * from ExamAttempts
 select * from UserAnswers
 select * from StudentProgress
 select * from ExamReports
+select * from UserOTP
 
 drop table ExamReports
 drop table StudentProgress

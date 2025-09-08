@@ -11,7 +11,7 @@ namespace OnlineExaminationSystem.Controllers.Admin
     [RoutePrefix("api/admin")]
     public class AdminController : ApiController
     {
-        OnlineExamSystemEntities1 db = new OnlineExamSystemEntities1();
+        OnlineExamSystemEntities2 db = new OnlineExamSystemEntities2();
 
         [HttpGet]
         [Route("getdashboardstats")]

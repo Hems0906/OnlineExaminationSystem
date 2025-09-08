@@ -1,0 +1,63 @@
+﻿@model MVC_OES.Models.Profile.StudentProfileDto
+
+@{
+    ViewBag.Title = "Edit Profile";
+}
+
+<h2>Edit Profile</h2>
+
+@using (Html.BeginForm("StudentProfileEdit", "Profile", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.stu_name, "Full Name")
+        @Html.TextBoxFor(m => m.stu_name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.stu_name, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.email, "Email")
+        @Html.TextBoxFor(m => m.email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.mobile, "Mobile")
+        @Html.TextBoxFor(m => m.mobile, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.mobile, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.city, "City")
+        @Html.TextBoxFor(m => m.city, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.city, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.State, "State")
+        @Html.TextBoxFor(m => m.State, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.State, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.DOB, "Date of Birth")
+        @Html.TextBoxFor(m => m.DOB, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+        @Html.ValidationMessageFor(m => m.DOB, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Qualification, "Qualification")
+        @Html.TextBoxFor(m => m.Qualification, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Qualification, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Completion, "Completion")
+        @Html.TextBoxFor(m => m.Completion, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Completion, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-success">Confirm</button>
+}

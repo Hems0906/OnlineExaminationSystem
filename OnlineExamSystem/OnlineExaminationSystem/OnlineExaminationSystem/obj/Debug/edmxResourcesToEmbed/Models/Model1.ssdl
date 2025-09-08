@@ -109,6 +109,16 @@
     <Property Name="selected_option" Type="nvarchar" MaxLength="1" />
     <Property Name="is_correct" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="UserOTP">
+    <Key>
+      <PropertyRef Name="otp_id" />
+    </Key>
+    <Property Name="otp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="otp" Type="nvarchar" MaxLength="6" Nullable="false" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="is_used" Type="bit" />
+  </EntityType>
   <EntityType Name="Users">
     <Key>
       <PropertyRef Name="user_Id" />
@@ -119,7 +129,7 @@
     <Property Name="role" Type="nvarchar" MaxLength="25" Nullable="false" />
     <Property Name="reference_Id" Type="int" Nullable="false" />
   </EntityType>
-  <Association Name="FK__ExamAttem__cours__634EBE90">
+  <Association Name="FK__ExamAttem__cours__4CA06362">
     <End Role="courses" Type="Self.courses" Multiplicity="0..1" />
     <End Role="ExamAttempts" Type="Self.ExamAttempts" Multiplicity="*" />
     <ReferentialConstraint>
@@ -131,7 +141,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ExamAttem__user___625A9A57">
+  <Association Name="FK__ExamAttem__user___4BAC3F29">
     <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
     <End Role="ExamAttempts" Type="Self.ExamAttempts" Multiplicity="*" />
     <ReferentialConstraint>
@@ -143,7 +153,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ExamRepor__attem__70A8B9AE">
+  <Association Name="FK__ExamRepor__attem__59FA5E80">
     <End Role="ExamAttempts" Type="Self.ExamAttempts" Multiplicity="0..1" />
     <End Role="ExamReports" Type="Self.ExamReports" Multiplicity="*" />
     <ReferentialConstraint>
@@ -155,7 +165,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ExamRepor__cours__72910220">
+  <Association Name="FK__ExamRepor__cours__5BE2A6F2">
     <End Role="courses" Type="Self.courses" Multiplicity="0..1" />
     <End Role="ExamReports" Type="Self.ExamReports" Multiplicity="*" />
     <ReferentialConstraint>
@@ -167,7 +177,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ExamRepor__user___719CDDE7">
+  <Association Name="FK__ExamRepor__user___5AEE82B9">
     <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
     <End Role="ExamReports" Type="Self.ExamReports" Multiplicity="*" />
     <ReferentialConstraint>
@@ -179,7 +189,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Levels__course_i__45BE5BA9">
+  <Association Name="FK__Levels__course_i__403A8C7D">
     <End Role="courses" Type="Self.courses" Multiplicity="0..1" />
     <End Role="Levels" Type="Self.Levels" Multiplicity="*" />
     <ReferentialConstraint>
@@ -191,7 +201,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Questions__Cours__51300E55">
+  <Association Name="FK__Questions__Cours__44FF419A">
     <End Role="courses" Type="Self.courses" Multiplicity="0..1" />
     <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
     <ReferentialConstraint>
@@ -203,7 +213,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Questions__Level__5224328E">
+  <Association Name="FK__Questions__Level__45F365D3">
     <End Role="Levels" Type="Self.Levels" Multiplicity="0..1" />
     <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
     <ReferentialConstraint>
@@ -215,7 +225,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__StudentPr__cours__6BE40491">
+  <Association Name="FK__StudentPr__cours__5535A963">
     <End Role="courses" Type="Self.courses" Multiplicity="0..1" />
     <End Role="StudentProgress" Type="Self.StudentProgress" Multiplicity="*" />
     <ReferentialConstraint>
@@ -227,7 +237,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__StudentPr__user___6AEFE058">
+  <Association Name="FK__StudentPr__user___5441852A">
     <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
     <End Role="StudentProgress" Type="Self.StudentProgress" Multiplicity="*" />
     <ReferentialConstraint>
@@ -239,7 +249,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__UserAnswe__attem__662B2B3B">
+  <Association Name="FK__UserAnswe__attem__4F7CD00D">
     <End Role="ExamAttempts" Type="Self.ExamAttempts" Multiplicity="0..1" />
     <End Role="UserAnswers" Type="Self.UserAnswers" Multiplicity="*" />
     <ReferentialConstraint>
@@ -251,7 +261,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__UserAnswe__quest__671F4F74">
+  <Association Name="FK__UserAnswe__quest__5070F446">
     <End Role="Questions" Type="Self.Questions" Multiplicity="0..1" />
     <End Role="UserAnswers" Type="Self.UserAnswers" Multiplicity="*" />
     <ReferentialConstraint>
@@ -260,6 +270,18 @@
       </Principal>
       <Dependent Role="UserAnswers">
         <PropertyRef Name="question_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserOTP__user_id__60A75C0F">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserOTP" Type="Self.UserOTP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="user_Id" />
+      </Principal>
+      <Dependent Role="UserOTP">
+        <PropertyRef Name="user_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -273,54 +295,59 @@
     <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StudentProgress" EntityType="Self.StudentProgress" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserAnswers" EntityType="Self.UserAnswers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserOTP" EntityType="Self.UserOTP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__ExamAttem__cours__634EBE90" Association="Self.FK__ExamAttem__cours__634EBE90">
+    <AssociationSet Name="FK__ExamAttem__cours__4CA06362" Association="Self.FK__ExamAttem__cours__4CA06362">
       <End Role="courses" EntitySet="courses" />
       <End Role="ExamAttempts" EntitySet="ExamAttempts" />
     </AssociationSet>
-    <AssociationSet Name="FK__ExamAttem__user___625A9A57" Association="Self.FK__ExamAttem__user___625A9A57">
+    <AssociationSet Name="FK__ExamAttem__user___4BAC3F29" Association="Self.FK__ExamAttem__user___4BAC3F29">
       <End Role="Users" EntitySet="Users" />
       <End Role="ExamAttempts" EntitySet="ExamAttempts" />
     </AssociationSet>
-    <AssociationSet Name="FK__ExamRepor__attem__70A8B9AE" Association="Self.FK__ExamRepor__attem__70A8B9AE">
+    <AssociationSet Name="FK__ExamRepor__attem__59FA5E80" Association="Self.FK__ExamRepor__attem__59FA5E80">
       <End Role="ExamAttempts" EntitySet="ExamAttempts" />
       <End Role="ExamReports" EntitySet="ExamReports" />
     </AssociationSet>
-    <AssociationSet Name="FK__ExamRepor__cours__72910220" Association="Self.FK__ExamRepor__cours__72910220">
+    <AssociationSet Name="FK__ExamRepor__cours__5BE2A6F2" Association="Self.FK__ExamRepor__cours__5BE2A6F2">
       <End Role="courses" EntitySet="courses" />
       <End Role="ExamReports" EntitySet="ExamReports" />
     </AssociationSet>
-    <AssociationSet Name="FK__ExamRepor__user___719CDDE7" Association="Self.FK__ExamRepor__user___719CDDE7">
+    <AssociationSet Name="FK__ExamRepor__user___5AEE82B9" Association="Self.FK__ExamRepor__user___5AEE82B9">
       <End Role="Users" EntitySet="Users" />
       <End Role="ExamReports" EntitySet="ExamReports" />
     </AssociationSet>
-    <AssociationSet Name="FK__Levels__course_i__45BE5BA9" Association="Self.FK__Levels__course_i__45BE5BA9">
+    <AssociationSet Name="FK__Levels__course_i__403A8C7D" Association="Self.FK__Levels__course_i__403A8C7D">
       <End Role="courses" EntitySet="courses" />
       <End Role="Levels" EntitySet="Levels" />
     </AssociationSet>
-    <AssociationSet Name="FK__Questions__Cours__51300E55" Association="Self.FK__Questions__Cours__51300E55">
+    <AssociationSet Name="FK__Questions__Cours__44FF419A" Association="Self.FK__Questions__Cours__44FF419A">
       <End Role="courses" EntitySet="courses" />
       <End Role="Questions" EntitySet="Questions" />
     </AssociationSet>
-    <AssociationSet Name="FK__Questions__Level__5224328E" Association="Self.FK__Questions__Level__5224328E">
+    <AssociationSet Name="FK__Questions__Level__45F365D3" Association="Self.FK__Questions__Level__45F365D3">
       <End Role="Levels" EntitySet="Levels" />
       <End Role="Questions" EntitySet="Questions" />
     </AssociationSet>
-    <AssociationSet Name="FK__StudentPr__cours__6BE40491" Association="Self.FK__StudentPr__cours__6BE40491">
+    <AssociationSet Name="FK__StudentPr__cours__5535A963" Association="Self.FK__StudentPr__cours__5535A963">
       <End Role="courses" EntitySet="courses" />
       <End Role="StudentProgress" EntitySet="StudentProgress" />
     </AssociationSet>
-    <AssociationSet Name="FK__StudentPr__user___6AEFE058" Association="Self.FK__StudentPr__user___6AEFE058">
+    <AssociationSet Name="FK__StudentPr__user___5441852A" Association="Self.FK__StudentPr__user___5441852A">
       <End Role="Users" EntitySet="Users" />
       <End Role="StudentProgress" EntitySet="StudentProgress" />
     </AssociationSet>
-    <AssociationSet Name="FK__UserAnswe__attem__662B2B3B" Association="Self.FK__UserAnswe__attem__662B2B3B">
+    <AssociationSet Name="FK__UserAnswe__attem__4F7CD00D" Association="Self.FK__UserAnswe__attem__4F7CD00D">
       <End Role="ExamAttempts" EntitySet="ExamAttempts" />
       <End Role="UserAnswers" EntitySet="UserAnswers" />
     </AssociationSet>
-    <AssociationSet Name="FK__UserAnswe__quest__671F4F74" Association="Self.FK__UserAnswe__quest__671F4F74">
+    <AssociationSet Name="FK__UserAnswe__quest__5070F446" Association="Self.FK__UserAnswe__quest__5070F446">
       <End Role="Questions" EntitySet="Questions" />
       <End Role="UserAnswers" EntitySet="UserAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserOTP__user_id__60A75C0F" Association="Self.FK__UserOTP__user_id__60A75C0F">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserOTP" EntitySet="UserOTP" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -162,6 +162,7 @@
     <Compile Include="Controllers\Admin\AdminController.cs" />
     <Compile Include="Controllers\Admin\QuestionController.cs" />
     <Compile Include="Controllers\Home\MainController.cs" />
+    <Compile Include="Controllers\Student\ProfileController.cs" />
     <Compile Include="Controllers\Student\StudentController.cs" />
     <Compile Include="Filters\AuthorizeRoles.cs" />
     <Compile Include="Global.asax.cs">
@@ -172,6 +173,7 @@
     <Compile Include="Models\Home\StudentLogin.cs" />
     <Compile Include="Models\Home\StudentRegister.cs" />
     <Compile Include="Models\Levels\LevelViewModel.cs" />
+    <Compile Include="Models\Profile\StudentProfileDto.cs" />
     <Compile Include="Models\Questions\QuestionModel.cs" />
     <Compile Include="Models\Questions\UploadQuestionModel.cs" />
     <Compile Include="Models\Student\Answer.cs" />
@@ -181,6 +183,7 @@
     <Compile Include="Models\Student\LevelViewModel.cs" />
     <Compile Include="Models\Student\QuestionModel.cs" />
     <Compile Include="Models\Student\StartExamModel.cs" />
+    <Compile Include="Models\Student\StudentProfileViewModel.cs" />
     <Compile Include="Models\Student\SubmitExamRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -244,6 +247,11 @@
     <Content Include="Views\Student\ReportFromSubmit.cshtml" />
     <Content Include="Views\Main\Index.cshtml" />
     <Content Include="Views\Question\Manage.cshtml" />
+    <Content Include="Views\Main\VerifyOtp.cshtml" />
+    <Content Include="Views\Main\ResetPassword.cshtml" />
+    <Content Include="Views\Main\ForgotPassword.cshtml" />
+    <Content Include="Views\Profile\StudentProfileDetails.cshtml" />
+    <Content Include="Views\Profile\StudentProfileEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

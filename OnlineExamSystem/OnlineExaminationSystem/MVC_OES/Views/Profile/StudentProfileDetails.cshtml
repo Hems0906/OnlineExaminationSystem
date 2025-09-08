@@ -1,0 +1,44 @@
+﻿@model MVC_OES.Models.Profile.StudentProfileDto
+
+@{
+    ViewBag.Title = "My Profile";
+}
+
+<h2>My Profile</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <td>@Model.stu_name</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td>@Model.email</td>
+    </tr>
+    <tr>
+        <th>Mobile</th>
+        <td>@Model.mobile</td>
+    </tr>
+    <tr>
+        <th>City</th>
+        <td>@Model.city</td>
+    </tr>
+    <tr>
+        <th>State</th>
+        <td>@Model.State</td>
+    </tr>
+    <tr>
+        <th>Date of Birth</th>
+        <td>@Model.DOB.ToString("dd-MM-yyyy")</td>
+    </tr>
+    <tr>
+        <th>Qualification</th>
+        <td>@Model.Qualification</td>
+    </tr>
+    <tr>
+        <th>Completion</th>
+        <td>@Model.Completion</td>
+    </tr>
+</table>
+
+<a href="@Url.Action("StudentProfileEdit", "Profile")" class="btn btn-primary">Edit</a>

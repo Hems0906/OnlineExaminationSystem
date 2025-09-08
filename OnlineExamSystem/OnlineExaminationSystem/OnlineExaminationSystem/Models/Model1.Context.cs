@@ -13,10 +13,10 @@ namespace OnlineExaminationSystem.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class OnlineExamSystemEntities1 : DbContext
+    public partial class OnlineExamSystemEntities2 : DbContext
     {
-        public OnlineExamSystemEntities1()
-            : base("name=OnlineExamSystemEntities1")
+        public OnlineExamSystemEntities2()
+            : base("name=OnlineExamSystemEntities2")
         {
         }
     
@@ -34,6 +34,7 @@ namespace OnlineExaminationSystem.Models
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<StudentProgress> StudentProgresses { get; set; }
         public virtual DbSet<UserAnswer> UserAnswers { get; set; }
+        public virtual DbSet<UserOTP> UserOTPs { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

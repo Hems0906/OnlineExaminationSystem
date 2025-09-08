@@ -164,10 +164,12 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\Admin\AdminController.cs" />
     <Compile Include="Controllers\Admin\QuestionController.cs" />
+    <Compile Include="Controllers\AuthApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Home\MainController.cs" />
     <Compile Include="Controllers\Students\CoursesController.cs" />
     <Compile Include="Controllers\Students\ExamController.cs" />
+    <Compile Include="Controllers\Students\StudentsProfileController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -208,6 +210,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Profile\StudentProfileDto.cs" />
     <Compile Include="Models\Question.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -222,6 +225,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserAnswer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserOTP.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

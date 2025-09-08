@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Verify OTP";
+}
+<h2>Verify OTP</h2>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+}
+
+@using (Html.BeginForm("VerifyOtp", "Main", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Enter OTP</label>
+        <input type="text" name="otp" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Verify</button>
+}
