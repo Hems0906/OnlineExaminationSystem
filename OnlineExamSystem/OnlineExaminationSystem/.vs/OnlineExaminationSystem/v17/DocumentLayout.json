@@ -1,0 +1,551 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A8872628-1020-42B8-9D9E-DC2567CA4BB3}|OES_Testing\\OES_Testing.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\oes_testing\\maincontrollertests\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8872628-1020-42B8-9D9E-DC2567CA4BB3}|OES_Testing\\OES_Testing.csproj|solutionrelative:oes_testing\\maincontrollertests\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8872628-1020-42B8-9D9E-DC2567CA4BB3}|OES_Testing\\OES_Testing.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\oes_testing\\admincontrollertests\\addcourse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8872628-1020-42B8-9D9E-DC2567CA4BB3}|OES_Testing\\OES_Testing.csproj|solutionrelative:oes_testing\\admincontrollertests\\addcourse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\mvc_oes\\controllers\\admin\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|solutionrelative:mvc_oes\\controllers\\admin\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\mvc_oes\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|solutionrelative:mvc_oes\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\mvc_oes\\scripts\\jquery-3.4.1.slim.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|solutionrelative:mvc_oes\\scripts\\jquery-3.4.1.slim.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\mvc_oes\\scripts\\jquery-3.4.1.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|solutionrelative:mvc_oes\\scripts\\jquery-3.4.1.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\mvc_oes\\views\\main\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|solutionrelative:mvc_oes\\views\\main\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\mvc_oes\\views\\student\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|solutionrelative:mvc_oes\\views\\student\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\mvc_oes\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|solutionrelative:mvc_oes\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\mvc_oes\\views\\admin\\adminprofiledetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|solutionrelative:mvc_oes\\views\\admin\\adminprofiledetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\mvc_oes\\views\\admin\\editcourse.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|solutionrelative:mvc_oes\\views\\admin\\editcourse.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\mvc_oes\\views\\admin\\editlevel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|solutionrelative:mvc_oes\\views\\admin\\editlevel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\mvc_oes\\views\\admin\\levels.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|solutionrelative:mvc_oes\\views\\admin\\levels.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\mvc_oes\\views\\admin\\courses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|solutionrelative:mvc_oes\\views\\admin\\courses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\mvc_oes\\views\\admin\\allstudents.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|solutionrelative:mvc_oes\\views\\admin\\allstudents.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\mvc_oes\\views\\admin\\addlevels.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|solutionrelative:mvc_oes\\views\\admin\\addlevels.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\mvc_oes\\views\\admin\\addcourse.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|solutionrelative:mvc_oes\\views\\admin\\addcourse.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8872628-1020-42B8-9D9E-DC2567CA4BB3}|OES_Testing\\OES_Testing.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\oes_testing\\studentcontrollertests.cs\\updateprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8872628-1020-42B8-9D9E-DC2567CA4BB3}|OES_Testing\\OES_Testing.csproj|solutionrelative:oes_testing\\studentcontrollertests.cs\\updateprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8872628-1020-42B8-9D9E-DC2567CA4BB3}|OES_Testing\\OES_Testing.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\oes_testing\\questionscontrollertests\\addquestions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8872628-1020-42B8-9D9E-DC2567CA4BB3}|OES_Testing\\OES_Testing.csproj|solutionrelative:oes_testing\\questionscontrollertests\\addquestions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8872628-1020-42B8-9D9E-DC2567CA4BB3}|OES_Testing\\OES_Testing.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\oes_testing\\maincontrollertests\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8872628-1020-42B8-9D9E-DC2567CA4BB3}|OES_Testing\\OES_Testing.csproj|solutionrelative:oes_testing\\maincontrollertests\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8872628-1020-42B8-9D9E-DC2567CA4BB3}|OES_Testing\\OES_Testing.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\oes_testing\\admincontrollertests\\addlevels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8872628-1020-42B8-9D9E-DC2567CA4BB3}|OES_Testing\\OES_Testing.csproj|solutionrelative:oes_testing\\admincontrollertests\\addlevels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0018812C-2895-4EDB-9D59-FAD77167349E}|OnlineExaminationSystem\\OnlineExaminationSystem.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\onlineexaminationsystem\\controllers\\students\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0018812C-2895-4EDB-9D59-FAD77167349E}|OnlineExaminationSystem\\OnlineExaminationSystem.csproj|solutionrelative:onlineexaminationsystem\\controllers\\students\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0018812C-2895-4EDB-9D59-FAD77167349E}|OnlineExaminationSystem\\OnlineExaminationSystem.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\onlineexaminationsystem\\controllers\\admin\\questioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0018812C-2895-4EDB-9D59-FAD77167349E}|OnlineExaminationSystem\\OnlineExaminationSystem.csproj|solutionrelative:onlineexaminationsystem\\controllers\\admin\\questioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0018812C-2895-4EDB-9D59-FAD77167349E}|OnlineExaminationSystem\\OnlineExaminationSystem.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\onlineexaminationsystem\\controllers\\admin\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0018812C-2895-4EDB-9D59-FAD77167349E}|OnlineExaminationSystem\\OnlineExaminationSystem.csproj|solutionrelative:onlineexaminationsystem\\controllers\\admin\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0018812C-2895-4EDB-9D59-FAD77167349E}|OnlineExaminationSystem\\OnlineExaminationSystem.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\onlineexaminationsystem\\controllers\\students\\examcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0018812C-2895-4EDB-9D59-FAD77167349E}|OnlineExaminationSystem\\OnlineExaminationSystem.csproj|solutionrelative:onlineexaminationsystem\\controllers\\students\\examcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0018812C-2895-4EDB-9D59-FAD77167349E}|OnlineExaminationSystem\\OnlineExaminationSystem.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\onlineexaminationsystem\\controllers\\students\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0018812C-2895-4EDB-9D59-FAD77167349E}|OnlineExaminationSystem\\OnlineExaminationSystem.csproj|solutionrelative:onlineexaminationsystem\\controllers\\students\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0018812C-2895-4EDB-9D59-FAD77167349E}|OnlineExaminationSystem\\OnlineExaminationSystem.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\onlineexaminationsystem\\models\\courses\\coursemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0018812C-2895-4EDB-9D59-FAD77167349E}|OnlineExaminationSystem\\OnlineExaminationSystem.csproj|solutionrelative:onlineexaminationsystem\\models\\courses\\coursemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0018812C-2895-4EDB-9D59-FAD77167349E}|OnlineExaminationSystem\\OnlineExaminationSystem.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\onlineexaminationsystem\\controllers\\home\\authapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0018812C-2895-4EDB-9D59-FAD77167349E}|OnlineExaminationSystem\\OnlineExaminationSystem.csproj|solutionrelative:onlineexaminationsystem\\controllers\\home\\authapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0018812C-2895-4EDB-9D59-FAD77167349E}|OnlineExaminationSystem\\OnlineExaminationSystem.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\onlineexaminationsystem\\controllers\\home\\maincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0018812C-2895-4EDB-9D59-FAD77167349E}|OnlineExaminationSystem\\OnlineExaminationSystem.csproj|solutionrelative:onlineexaminationsystem\\controllers\\home\\maincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\mvc_oes\\views\\main\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{63614C5D-4F61-44F6-B23F-D30C1312D1B0}|MVC_OES\\MVC_OES.csproj|solutionrelative:mvc_oes\\views\\main\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0018812C-2895-4EDB-9D59-FAD77167349E}|OnlineExaminationSystem\\OnlineExaminationSystem.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\onlineexaminationsystem\\models\\home\\studentlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0018812C-2895-4EDB-9D59-FAD77167349E}|OnlineExaminationSystem\\OnlineExaminationSystem.csproj|solutionrelative:onlineexaminationsystem\\models\\home\\studentlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 100,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 28,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "MVC_OES\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "MVC_OES\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAAAHwAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-09T10:58:05.802Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "jquery-3.4.1.slim.js",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Scripts\\jquery-3.4.1.slim.js",
+              "RelativeDocumentMoniker": "MVC_OES\\Scripts\\jquery-3.4.1.slim.js",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Scripts\\jquery-3.4.1.slim.js",
+              "RelativeToolTip": "MVC_OES\\Scripts\\jquery-3.4.1.slim.js",
+              "ViewState": "AgIAAOAEAAAAAAAAAAAAAOQEAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-09-09T10:58:02.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "jquery-3.4.1.js",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Scripts\\jquery-3.4.1.js",
+              "RelativeDocumentMoniker": "MVC_OES\\Scripts\\jquery-3.4.1.js",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Scripts\\jquery-3.4.1.js",
+              "RelativeToolTip": "MVC_OES\\Scripts\\jquery-3.4.1.js",
+              "ViewState": "AgIAAOAEAAAAAAAAAAAAAOcEAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-09-09T10:57:56.454Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Main\\Index.cshtml",
+              "RelativeDocumentMoniker": "MVC_OES\\Views\\Main\\Index.cshtml",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Main\\Index.cshtml",
+              "RelativeToolTip": "MVC_OES\\Views\\Main\\Index.cshtml",
+              "ViewState": "AgIAACkAAAAAAAAAAAAtwD4AAABsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-09T10:57:35.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Student\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "MVC_OES\\Views\\Student\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Student\\Dashboard.cshtml",
+              "RelativeToolTip": "MVC_OES\\Views\\Student\\Dashboard.cshtml",
+              "ViewState": "AgIAACIAAAAAAAAAAAAAADQAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-09T10:57:31.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Controllers\\Admin\\AdminController.cs",
+              "RelativeDocumentMoniker": "MVC_OES\\Controllers\\Admin\\AdminController.cs",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Controllers\\Admin\\AdminController.cs",
+              "RelativeToolTip": "MVC_OES\\Controllers\\Admin\\AdminController.cs",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAowA0AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T10:55:38.851Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "EditLevel.cshtml",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\EditLevel.cshtml",
+              "RelativeDocumentMoniker": "MVC_OES\\Views\\Admin\\EditLevel.cshtml",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\EditLevel.cshtml",
+              "RelativeToolTip": "MVC_OES\\Views\\Admin\\EditLevel.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-09T10:53:38.237Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Levels.cshtml",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\Levels.cshtml",
+              "RelativeDocumentMoniker": "MVC_OES\\Views\\Admin\\Levels.cshtml",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\Levels.cshtml",
+              "RelativeToolTip": "MVC_OES\\Views\\Admin\\Levels.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-09T10:53:35.496Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Courses.cshtml",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\Courses.cshtml",
+              "RelativeDocumentMoniker": "MVC_OES\\Views\\Admin\\Courses.cshtml",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\Courses.cshtml",
+              "RelativeToolTip": "MVC_OES\\Views\\Admin\\Courses.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-09T10:52:56.949Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AddLevels.cshtml",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\AddLevels.cshtml",
+              "RelativeDocumentMoniker": "MVC_OES\\Views\\Admin\\AddLevels.cshtml",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\AddLevels.cshtml",
+              "RelativeToolTip": "MVC_OES\\Views\\Admin\\AddLevels.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-09T10:52:53.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AddCourse.cshtml",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\AddCourse.cshtml",
+              "RelativeDocumentMoniker": "MVC_OES\\Views\\Admin\\AddCourse.cshtml",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\AddCourse.cshtml",
+              "RelativeToolTip": "MVC_OES\\Views\\Admin\\AddCourse.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-09T10:52:51.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AllStudents.cshtml",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\AllStudents.cshtml",
+              "RelativeDocumentMoniker": "MVC_OES\\Views\\Admin\\AllStudents.cshtml",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\AllStudents.cshtml",
+              "RelativeToolTip": "MVC_OES\\Views\\Admin\\AllStudents.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-09T10:52:39.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AdminProfileDetails.cshtml",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\AdminProfileDetails.cshtml",
+              "RelativeDocumentMoniker": "MVC_OES\\Views\\Admin\\AdminProfileDetails.cshtml",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\AdminProfileDetails.cshtml",
+              "RelativeToolTip": "MVC_OES\\Views\\Admin\\AdminProfileDetails.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-09T10:52:38.207Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "MVC_OES\\Views\\Admin\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\Dashboard.cshtml",
+              "RelativeToolTip": "MVC_OES\\Views\\Admin\\Dashboard.cshtml",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAGEAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-09T10:52:31.762Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "EditCourse.cshtml",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\EditCourse.cshtml",
+              "RelativeDocumentMoniker": "MVC_OES\\Views\\Admin\\EditCourse.cshtml",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\EditCourse.cshtml",
+              "RelativeToolTip": "MVC_OES\\Views\\Admin\\EditCourse.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-09T10:52:30.006Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "UpdateProfile.cs",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\StudentControllerTests.cs\\UpdateProfile.cs",
+              "RelativeDocumentMoniker": "OES_Testing\\StudentControllerTests.cs\\UpdateProfile.cs",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\StudentControllerTests.cs\\UpdateProfile.cs",
+              "RelativeToolTip": "OES_Testing\\StudentControllerTests.cs\\UpdateProfile.cs",
+              "ViewState": "AgIAAIMAAAAAAAAAAAAAAEIAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T10:26:33.387Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AddQuestions.cs",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\QuestionsControllerTests\\AddQuestions.cs",
+              "RelativeDocumentMoniker": "OES_Testing\\QuestionsControllerTests\\AddQuestions.cs",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\QuestionsControllerTests\\AddQuestions.cs",
+              "RelativeToolTip": "OES_Testing\\QuestionsControllerTests\\AddQuestions.cs",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAYwB4AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T10:20:24.549Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "AddLevels.cs",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\AdminControllerTests\\AddLevels.cs",
+              "RelativeDocumentMoniker": "OES_Testing\\AdminControllerTests\\AddLevels.cs",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\AdminControllerTests\\AddLevels.cs",
+              "RelativeToolTip": "OES_Testing\\AdminControllerTests\\AddLevels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIQAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T10:17:00.735Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "QuestionController.cs",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OnlineExaminationSystem\\Controllers\\Admin\\QuestionController.cs",
+              "RelativeDocumentMoniker": "OnlineExaminationSystem\\Controllers\\Admin\\QuestionController.cs",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OnlineExaminationSystem\\Controllers\\Admin\\QuestionController.cs",
+              "RelativeToolTip": "OnlineExaminationSystem\\Controllers\\Admin\\QuestionController.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABoAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T10:10:43.961Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "CourseModel.cs",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OnlineExaminationSystem\\Models\\Courses\\CourseModel.cs",
+              "RelativeDocumentMoniker": "OnlineExaminationSystem\\Models\\Courses\\CourseModel.cs",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OnlineExaminationSystem\\Models\\Courses\\CourseModel.cs",
+              "RelativeToolTip": "OnlineExaminationSystem\\Models\\Courses\\CourseModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T09:17:42.652Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AddCourse.cs",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\AdminControllerTests\\AddCourse.cs",
+              "RelativeDocumentMoniker": "OES_Testing\\AdminControllerTests\\AddCourse.cs",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\AdminControllerTests\\AddCourse.cs",
+              "RelativeToolTip": "OES_Testing\\AdminControllerTests\\AddCourse.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAQwEgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T10:03:43.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ProfileController.cs",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OnlineExaminationSystem\\Controllers\\Students\\ProfileController.cs",
+              "RelativeDocumentMoniker": "OnlineExaminationSystem\\Controllers\\Students\\ProfileController.cs",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OnlineExaminationSystem\\Controllers\\Students\\ProfileController.cs",
+              "RelativeToolTip": "OnlineExaminationSystem\\Controllers\\Students\\ProfileController.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAQwEYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T09:58:18.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ExamController.cs",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OnlineExaminationSystem\\Controllers\\Students\\ExamController.cs",
+              "RelativeDocumentMoniker": "OnlineExaminationSystem\\Controllers\\Students\\ExamController.cs",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OnlineExaminationSystem\\Controllers\\Students\\ExamController.cs",
+              "RelativeToolTip": "OnlineExaminationSystem\\Controllers\\Students\\ExamController.cs",
+              "ViewState": "AgIAANcAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T09:58:03.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "CoursesController.cs",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OnlineExaminationSystem\\Controllers\\Students\\CoursesController.cs",
+              "RelativeDocumentMoniker": "OnlineExaminationSystem\\Controllers\\Students\\CoursesController.cs",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OnlineExaminationSystem\\Controllers\\Students\\CoursesController.cs",
+              "RelativeToolTip": "OnlineExaminationSystem\\Controllers\\Students\\CoursesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T09:57:51.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OnlineExaminationSystem\\Controllers\\Admin\\AdminController.cs",
+              "RelativeDocumentMoniker": "OnlineExaminationSystem\\Controllers\\Admin\\AdminController.cs",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OnlineExaminationSystem\\Controllers\\Admin\\AdminController.cs",
+              "RelativeToolTip": "OnlineExaminationSystem\\Controllers\\Admin\\AdminController.cs",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAAAIsAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T09:57:32.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Register.cs",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\MainControllerTests\\Register.cs",
+              "RelativeDocumentMoniker": "OES_Testing\\MainControllerTests\\Register.cs",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\MainControllerTests\\Register.cs",
+              "RelativeToolTip": "OES_Testing\\MainControllerTests\\Register.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABMAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T09:49:07.427Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Main\\Login.cshtml",
+              "RelativeDocumentMoniker": "MVC_OES\\Views\\Main\\Login.cshtml",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Main\\Login.cshtml",
+              "RelativeToolTip": "MVC_OES\\Views\\Main\\Login.cshtml",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAFcAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-09T09:00:49.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Login.cs",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\MainControllerTests\\Login.cs",
+              "RelativeDocumentMoniker": "OES_Testing\\MainControllerTests\\Login.cs",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\MainControllerTests\\Login.cs",
+              "RelativeToolTip": "OES_Testing\\MainControllerTests\\Login.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T08:49:34.622Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "MainController.cs",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OnlineExaminationSystem\\Controllers\\Home\\MainController.cs",
+              "RelativeDocumentMoniker": "OnlineExaminationSystem\\Controllers\\Home\\MainController.cs",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OnlineExaminationSystem\\Controllers\\Home\\MainController.cs",
+              "RelativeToolTip": "OnlineExaminationSystem\\Controllers\\Home\\MainController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T08:43:35.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "AuthApiController.cs",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OnlineExaminationSystem\\Controllers\\Home\\AuthApiController.cs",
+              "RelativeDocumentMoniker": "OnlineExaminationSystem\\Controllers\\Home\\AuthApiController.cs",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OnlineExaminationSystem\\Controllers\\Home\\AuthApiController.cs",
+              "RelativeToolTip": "OnlineExaminationSystem\\Controllers\\Home\\AuthApiController.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAA5wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T08:43:34.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "StudentLogin.cs",
+              "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OnlineExaminationSystem\\Models\\Home\\StudentLogin.cs",
+              "RelativeDocumentMoniker": "OnlineExaminationSystem\\Models\\Home\\StudentLogin.cs",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OnlineExaminationSystem\\Models\\Home\\StudentLogin.cs",
+              "RelativeToolTip": "OnlineExaminationSystem\\Models\\Home\\StudentLogin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T08:43:24.347Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
