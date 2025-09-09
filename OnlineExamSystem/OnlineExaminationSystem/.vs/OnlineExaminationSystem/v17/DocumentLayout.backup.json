@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A8872628-1020-42B8-9D9E-DC2567CA4BB3}|OES_Testing\\OES_Testing.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\oes_testing\\maincontrollertests\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8872628-1020-42B8-9D9E-DC2567CA4BB3}|OES_Testing\\OES_Testing.csproj|solutionrelative:oes_testing\\maincontrollertests\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A8872628-1020-42B8-9D9E-DC2567CA4BB3}|OES_Testing\\OES_Testing.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\oes_testing\\admincontrollertests\\addcourse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A8872628-1020-42B8-9D9E-DC2567CA4BB3}|OES_Testing\\OES_Testing.csproj|solutionrelative:oes_testing\\admincontrollertests\\addcourse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -83,10 +87,6 @@
       "RelativeMoniker": "D:0:0:{A8872628-1020-42B8-9D9E-DC2567CA4BB3}|OES_Testing\\OES_Testing.csproj|solutionrelative:oes_testing\\admincontrollertests\\addlevels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A8872628-1020-42B8-9D9E-DC2567CA4BB3}|OES_Testing\\OES_Testing.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\oes_testing\\maincontrollertests\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A8872628-1020-42B8-9D9E-DC2567CA4BB3}|OES_Testing\\OES_Testing.csproj|solutionrelative:oes_testing\\maincontrollertests\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0018812C-2895-4EDB-9D59-FAD77167349E}|OnlineExaminationSystem\\OnlineExaminationSystem.csproj|c:\\users\\vidushij\\onlineexaminationsystem\\onlineexamsystem\\onlineexaminationsystem\\onlineexaminationsystem\\controllers\\students\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0018812C-2895-4EDB-9D59-FAD77167349E}|OnlineExaminationSystem\\OnlineExaminationSystem.csproj|solutionrelative:onlineexaminationsystem\\controllers\\students\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -134,11 +134,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 20,
+          "SelectedChildIndex": 28,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "MVC_OES\\Views\\Shared\\_Layout.cshtml",
@@ -151,12 +151,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "jquery-3.4.1.slim.js",
               "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Scripts\\jquery-3.4.1.slim.js",
               "RelativeDocumentMoniker": "MVC_OES\\Scripts\\jquery-3.4.1.slim.js",
-              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Scripts\\jquery-3.4.1.slim.js*",
-              "RelativeToolTip": "MVC_OES\\Scripts\\jquery-3.4.1.slim.js*",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Scripts\\jquery-3.4.1.slim.js",
+              "RelativeToolTip": "MVC_OES\\Scripts\\jquery-3.4.1.slim.js",
               "ViewState": "AgIAAOAEAAAAAAAAAAAAAOQEAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-09-09T10:58:02.729Z",
@@ -164,12 +164,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "jquery-3.4.1.js",
               "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Scripts\\jquery-3.4.1.js",
               "RelativeDocumentMoniker": "MVC_OES\\Scripts\\jquery-3.4.1.js",
-              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Scripts\\jquery-3.4.1.js*",
-              "RelativeToolTip": "MVC_OES\\Scripts\\jquery-3.4.1.js*",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Scripts\\jquery-3.4.1.js",
+              "RelativeToolTip": "MVC_OES\\Scripts\\jquery-3.4.1.js",
               "ViewState": "AgIAAOAEAAAAAAAAAAAAAOcEAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-09-09T10:57:56.454Z",
@@ -177,7 +177,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Main\\Index.cshtml",
               "RelativeDocumentMoniker": "MVC_OES\\Views\\Main\\Index.cshtml",
@@ -190,7 +190,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Dashboard.cshtml",
               "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Student\\Dashboard.cshtml",
               "RelativeDocumentMoniker": "MVC_OES\\Views\\Student\\Dashboard.cshtml",
@@ -203,7 +203,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "AdminController.cs",
               "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Controllers\\Admin\\AdminController.cs",
               "RelativeDocumentMoniker": "MVC_OES\\Controllers\\Admin\\AdminController.cs",
@@ -216,7 +216,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "EditLevel.cshtml",
               "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\EditLevel.cshtml",
               "RelativeDocumentMoniker": "MVC_OES\\Views\\Admin\\EditLevel.cshtml",
@@ -229,7 +229,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Levels.cshtml",
               "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\Levels.cshtml",
               "RelativeDocumentMoniker": "MVC_OES\\Views\\Admin\\Levels.cshtml",
@@ -242,7 +242,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Courses.cshtml",
               "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\Courses.cshtml",
               "RelativeDocumentMoniker": "MVC_OES\\Views\\Admin\\Courses.cshtml",
@@ -255,7 +255,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "AddLevels.cshtml",
               "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\AddLevels.cshtml",
               "RelativeDocumentMoniker": "MVC_OES\\Views\\Admin\\AddLevels.cshtml",
@@ -268,7 +268,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "AddCourse.cshtml",
               "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\AddCourse.cshtml",
               "RelativeDocumentMoniker": "MVC_OES\\Views\\Admin\\AddCourse.cshtml",
@@ -281,7 +281,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "AllStudents.cshtml",
               "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\AllStudents.cshtml",
               "RelativeDocumentMoniker": "MVC_OES\\Views\\Admin\\AllStudents.cshtml",
@@ -294,7 +294,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "AdminProfileDetails.cshtml",
               "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\AdminProfileDetails.cshtml",
               "RelativeDocumentMoniker": "MVC_OES\\Views\\Admin\\AdminProfileDetails.cshtml",
@@ -307,7 +307,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Dashboard.cshtml",
               "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\Dashboard.cshtml",
               "RelativeDocumentMoniker": "MVC_OES\\Views\\Admin\\Dashboard.cshtml",
@@ -320,7 +320,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "EditCourse.cshtml",
               "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\MVC_OES\\Views\\Admin\\EditCourse.cshtml",
               "RelativeDocumentMoniker": "MVC_OES\\Views\\Admin\\EditCourse.cshtml",
@@ -333,7 +333,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "UpdateProfile.cs",
               "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\StudentControllerTests.cs\\UpdateProfile.cs",
               "RelativeDocumentMoniker": "OES_Testing\\StudentControllerTests.cs\\UpdateProfile.cs",
@@ -346,7 +346,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "AddQuestions.cs",
               "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\QuestionsControllerTests\\AddQuestions.cs",
               "RelativeDocumentMoniker": "OES_Testing\\QuestionsControllerTests\\AddQuestions.cs",
@@ -359,12 +359,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "AddLevels.cs",
               "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\AdminControllerTests\\AddLevels.cs",
               "RelativeDocumentMoniker": "OES_Testing\\AdminControllerTests\\AddLevels.cs",
-              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\AdminControllerTests\\AddLevels.cs*",
-              "RelativeToolTip": "OES_Testing\\AdminControllerTests\\AddLevels.cs*",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\AdminControllerTests\\AddLevels.cs",
+              "RelativeToolTip": "OES_Testing\\AdminControllerTests\\AddLevels.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAIQAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-09T10:17:00.735Z",
@@ -398,13 +398,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AddCourse.cs",
               "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\AdminControllerTests\\AddCourse.cs",
               "RelativeDocumentMoniker": "OES_Testing\\AdminControllerTests\\AddCourse.cs",
-              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\AdminControllerTests\\AddCourse.cs*",
-              "RelativeToolTip": "OES_Testing\\AdminControllerTests\\AddCourse.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\AdminControllerTests\\AddCourse.cs",
+              "RelativeToolTip": "OES_Testing\\AdminControllerTests\\AddCourse.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAQwEgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-09T10:03:43.54Z",
               "EditorCaption": ""
@@ -463,12 +463,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "Register.cs",
               "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\MainControllerTests\\Register.cs",
               "RelativeDocumentMoniker": "OES_Testing\\MainControllerTests\\Register.cs",
-              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\MainControllerTests\\Register.cs*",
-              "RelativeToolTip": "OES_Testing\\MainControllerTests\\Register.cs*",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\MainControllerTests\\Register.cs",
+              "RelativeToolTip": "OES_Testing\\MainControllerTests\\Register.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAABMAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-09T09:49:07.427Z",
@@ -493,13 +493,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 0,
               "Title": "Login.cs",
               "DocumentMoniker": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\MainControllerTests\\Login.cs",
               "RelativeDocumentMoniker": "OES_Testing\\MainControllerTests\\Login.cs",
-              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\MainControllerTests\\Login.cs*",
-              "RelativeToolTip": "OES_Testing\\MainControllerTests\\Login.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEkAAAAMAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\vidushij\\OnlineExaminationSystem\\OnlineExamSystem\\OnlineExaminationSystem\\OES_Testing\\MainControllerTests\\Login.cs",
+              "RelativeToolTip": "OES_Testing\\MainControllerTests\\Login.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-09T08:49:34.622Z",
               "EditorCaption": ""
