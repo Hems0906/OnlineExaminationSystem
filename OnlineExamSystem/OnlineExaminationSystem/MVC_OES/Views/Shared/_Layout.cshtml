@@ -226,23 +226,23 @@ var username = Session["UserName"]?.ToString() ?? "Guest";
     <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
         <div class="container">
             @if (role == "admin")
-{
+            {
                 <a class="navbar-brand" href="@Url.Action("Dashboard", "Admin")">
                     <h2>OES - Admin Dashboard</h2>
                 </a>
-}
-else if (role == "student")
-{
+            }
+            else if (role == "student")
+            {
                 <a class="navbar-brand" href="@Url.Action("Dashboard", "Student")">
                     <h2>OES - Student Dashboard</h2>
                 </a>
-}
-else
-{
+            }
+            else
+            {
                 <a class="navbar-brand" href="@Url.Action("Index", "Main")">
                     <h2>Online Examination System</h2>
                 </a>
-}
+            }
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -266,35 +266,15 @@ else
                     else if (role == "admin")
                     {
                         <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("ProfileDetails", "Admin")">
-                    <i class="fas fa-user-circle"></i> Profile
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Logout", "Main")">
-                    <i class="fas fa-sign-out-alt"></i> Logout
-                </a>
-            </li>
-                        @*<li class="nav-item dropdown ms-auto">
-                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="profileDropdown" role="button"
-                               data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user-circle fa-lg me-1"></i>
-                                <span>@Session["UserName"]</span> 
+                            <a class="nav-link" href="@Url.Action("ProfileDetails", "Admin")">
+                                <i class="fas fa-user-circle"></i> Profile
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="profileDropdown">
-                                <li>
-                                    <a class="dropdown-item" href="@Url.Action("ProfileDetails", "Admin")">
-                                        <i class="fas fa-user"></i> My Profile
-                                    </a>
-                                </li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li>
-                                    <a class="dropdown-item text-danger" href="@Url.Action("Logout", "Main")">
-                                        <i class="fas fa-sign-out-alt"></i> Logout
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>*@
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Logout", "Main")">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </li>
 
                     }
                     else if (role == "student")
