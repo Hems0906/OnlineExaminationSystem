@@ -276,5 +276,80 @@ namespace OnlineExaminationSystem.Controllers.Admin
 
             return Ok(students);
         }
+
+        //[HttpGet]
+        //[Route("reports/coursereports")]
+        //public IHttpActionResult GetCourseLevelPassFail()
+        //{
+        //    try
+        //    {
+        //        var data = db.courses
+        //            .Select(c => new
+        //            {
+        //                CourseName = c.course_name,
+        //                Levels = db.Levels
+        //                    .Where(l => l.course_id == c.course_Id)
+        //                    .Select(l => new
+        //                    {
+        //                        LevelNumber = l.level_number,
+        //                        LevelName = l.level_name,
+        //                        Passed = db.ExamAttempts
+        //                                   .Count(e => e.course_id == c.course_Id
+        //                                               && e.level_number == l.level_number
+        //                                               && e.is_passed),
+        //                        Failed = db.ExamAttempts
+        //                                   .Count(e => e.course_id == c.course_Id
+        //                                               && e.level_number == l.level_number
+        //                                               && !e.is_passed)
+        //                    }).ToList()
+        //            }).ToList();
+
+        //        return Ok(data);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return InternalServerError(ex);
+        //    }
+        //}
+        [HttpGet]
+        [Route("reports/coursereports")]
+        public IHttpActionResult GetCourseLevelPassFail()
+        {
+            try
+            {
+                var data = db.courses
+                    .Select(c => new
+                    {
+                        CourseName = c.course_name,
+                        Levels = db.Levels
+                            .Where(l => l.course_id == c.course_Id)
+                            .Select(l => new
+                            {
+                                LevelNumber = l.level_number,
+                                LevelName = l.level_name,
+                                Passed = db.ExamAttempts
+                                           .Count(e => e.course_id == c.course_Id
+                                                       && e.level_number == l.level_number
+                                                       && e.is_passed),
+                                Failed = db.ExamAttempts
+                                           .Count(e => e.course_id == c.course_Id
+                                                       && e.level_number == l.level_number
+                                                       && !e.is_passed)
+                            })
+                            .Where(lvl => (lvl.Passed + lvl.Failed) > 0) 
+                            .ToList()
+                    })
+                    .Where(c => c.Levels.Any()) 
+                    .ToList();
+
+                return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+
+
     }
 }

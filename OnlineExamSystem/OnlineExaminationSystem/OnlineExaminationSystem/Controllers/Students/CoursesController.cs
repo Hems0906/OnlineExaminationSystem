@@ -36,12 +36,12 @@ namespace OnlineExaminationSystem.Controllers.Students
                     );
 
                     if (!validCourse)
-                        continue; 
+                        continue;
 
                     var progress = db.StudentProgresses
                         .FirstOrDefault(p => p.user_id == userId && p.course_id == course.course_Id);
 
-                    int nextLevel = (progress == null || !progress.highest_level_passed.HasValue)? 1: progress.highest_level_passed.Value + 1;
+                    int nextLevel = (progress == null || !progress.highest_level_passed.HasValue) ? 1 : progress.highest_level_passed.Value + 1;
 
                     bool isCompleted = (progress != null && progress.is_completed == true);
 
@@ -116,6 +116,51 @@ namespace OnlineExaminationSystem.Controllers.Students
                                }).ToList();
 
                 return Ok(reports);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("dashboard/{userId}")]
+        public IHttpActionResult GetStudentDashboard(int userId)
+        {
+            try
+            {
+                var activeCourses = db.courses.Where(c => c.status == true).ToList();
+
+                var validCourses = activeCourses.Where(course => db.Levels.Where(l => l.course_id == course.course_Id).All(l =>db.Questions.Count(q => q.CourseId == course.course_Id && q.LevelNumber == l.level_number && q.Status == true)>= l.tot_ques)).ToList();
+
+                var totalCourses = validCourses.Count;
+
+                var completedCourses = db.StudentProgresses
+                    .Count(sp => sp.user_id == userId && sp.is_completed == true);
+
+                var ongoingCourses = totalCourses - completedCourses;
+
+                var totalAttempts = db.ExamAttempts
+                    .Count(ea => ea.user_id == userId);
+
+                var passedAttempts = db.ExamAttempts
+                    .Count(ea => ea.user_id == userId && ea.is_passed);
+
+                double passPercentage = totalAttempts > 0
+                    ? Math.Round((double)passedAttempts / totalAttempts * 100, 2)
+                    : 0;
+
+                var stats = new
+                {
+                    TotalCourses = totalCourses,
+                    CompletedCourses = completedCourses,
+                    OngoingCourses = ongoingCourses,
+                    TotalExamsAttempted = totalAttempts,
+                    PassedExams = passedAttempts,
+                    PassPercentage = passPercentage
+                };
+
+                return Ok(stats);
             }
             catch (Exception ex)
             {
