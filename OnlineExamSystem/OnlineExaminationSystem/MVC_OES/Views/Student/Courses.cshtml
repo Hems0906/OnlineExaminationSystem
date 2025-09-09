@@ -1,0 +1,116 @@
+﻿@model IEnumerable<MVC_OES.Models.Student.CourseModel>
+
+@{
+    ViewBag.Title = "Courses";
+}
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+<style>
+    body {
+        background-color: #f5f7fa;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #007bff;
+    }
+
+    .course-card {
+        border-radius: 15px;
+        background: #fff;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+        }
+
+    .card-header {
+        background: linear-gradient(90deg, #007bff, #00c6ff);
+        color: #fff;
+        padding: 15px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .card-body {
+        padding: 20px;
+        text-align: center;
+    }
+
+        .card-body .badge {
+            font-size: 0.9rem;
+            padding: 0.5em 0.8em;
+        }
+
+    .card-footer {
+        padding: 15px;
+        text-align: center;
+    }
+
+    .btn-block {
+        width: 100%;
+    }
+
+    .status-active {
+        color: green;
+        font-weight: bold;
+    }
+
+    .status-inactive {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+
+<h2>Available Courses</h2>
+
+@if (!Model.Any())
+{
+    <p class="text-center">No courses available.</p>
+}
+else
+{
+    <div class="row mt-4">
+        @foreach (var course in Model)
+        {
+            var statusClass = course.Status == "Active" ? "status-active" : "status-inactive";
+            <div class="col-md-4 mb-4">
+                <div class="course-card h-100">
+                    <div class="card-header">
+                        @course.course_name
+                    </div>
+                    <div class="card-body">
+                        <p>Status: <span class="@statusClass">@course.Status</span></p>
+                        <p>Next Level: <span class="badge bg-primary">@course.next_level</span></p>
+                        @if (!course.CanStartExam)
+                        {
+                            <p class="text-muted mt-2"><i class="fas fa-check-circle"></i> Completed</p>
+                        }
+                    </div>
+                    <div class="card-footer">
+                        @if (course.CanStartExam)
+                        {
+                            <a href="@Url.Action("Instructions", "Student", new { courseId = course.course_id, userId = (int)Session["UserId"], levelNumber = course.next_level })" class="btn btn-primary btn-block">
+                                Start Exam <i class="fas fa-arrow-right ms-1"></i>
+                            </a>
+                        }
+                        else
+                        {
+                            <button class="btn btn-secondary btn-block" disabled>
+                                Completed <i class="fas fa-lock ms-1"></i>
+                            </button>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

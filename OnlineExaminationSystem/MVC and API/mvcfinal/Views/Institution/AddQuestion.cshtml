@@ -1,0 +1,60 @@
+﻿@model mvcfinal.Models.QuestionViewModel
+
+@{
+    ViewBag.Title = "Add Question";
+    int subjectId = ViewBag.SubjectId;
+    string subjectName = ViewBag.SubjectName;
+}
+
+<h2>Add Question for @subjectName</h2>
+
+@using (Html.BeginForm("AddQuestion", "Institution", FormMethod.Post, new { @subjectId = subjectId }))
+{
+    @Html.AntiForgeryToken()
+    @Html.Hidden("subjectId", subjectId)
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Level)
+        @Html.DropDownListFor(m => m.Level, new SelectList(new[] { 1, 2, 3 }), "Select Level", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Level, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.QuestionText)
+        @Html.TextAreaFor(m => m.QuestionText, new { @class = "form-control", rows = 3 })
+        @Html.ValidationMessageFor(m => m.QuestionText, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.OptionA)
+        @Html.TextBoxFor(m => m.OptionA, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.OptionA, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.OptionB)
+        @Html.TextBoxFor(m => m.OptionB, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.OptionB, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.OptionC)
+        @Html.TextBoxFor(m => m.OptionC, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.OptionC, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.OptionD)
+        @Html.TextBoxFor(m => m.OptionD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.OptionD, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CorrectAnswer)
+        @Html.DropDownListFor(m => m.CorrectAnswer, new SelectList(new[] { "A", "B", "C", "D" }), "Select Correct Answer", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CorrectAnswer, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Question</button>
+    <a class="btn btn-secondary" href="@Url.Action("Index")">Back to Subjects</a>
+}

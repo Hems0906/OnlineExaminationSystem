@@ -1,0 +1,21 @@
+﻿@model mvcfinal.Models.SubjectViewModel
+
+@{
+    ViewBag.Title = "Add Subject";
+}
+
+<h2>Add New Subject</h2>
+
+@using (Html.BeginForm("AddSubject", "Institution", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Subject</button>
+    <a class="btn btn-secondary" href="@Url.Action("Index")">Cancel</a>
+}

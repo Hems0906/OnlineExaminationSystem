@@ -1,0 +1,38 @@
+﻿@model List<mvcfinal.Models.InstitutionViewModel>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var inst in Model)
+        {
+            <tr>
+                <td>@inst.Id</td>
+                <td>@inst.Name</td>
+                <td>@inst.Email</td>
+                <td>
+                    @if (inst.IsActive)
+                    {
+                        <span class="badge bg-success">Active</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">Inactive</span>
+                    }
+                </td>
+                <td>
+                    <a class="btn btn-warning btn-sm" href="@Url.Action("ToggleStatus", "Admin", new { id = inst.Id })">
+                        @(inst.IsActive ? "Disable" : "Enable")
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

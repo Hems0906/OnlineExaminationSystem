@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<div class="container mt-4">
+
+    <div class="text-center bg-light p-5 rounded shadow-sm">
+        <h1 class="display-4 text-primary">Welcome to the Online Examination System</h1>
+        <p class="lead mt-3">
+            A modern, secure, and easy-to-use platform for conducting online exams.
+        </p>
+        <div class="mt-4">
+            <a href="@Url.Action("Register", "Main")" class="btn btn-success btn-lg me-3">
+                <i class="fas fa-user-plus"></i> Register Now
+            </a>
+            <a href="@Url.Action("Login", "Main")" class="btn btn-primary btn-lg">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+        </div>
+    </div>
+
+    <div class="row mt-5 align-items-center">
+        <div class="col-md-6">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="About OES" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6">
+            <h2 class="text-primary">About Our System</h2>
+            <p class="text-muted">
+                The Online Examination System is designed to simplify the process of conducting exams online.
+                It allows **admins** to create courses, assign levels, add questions, and generate reports.
+                **Students** can register, attend exams, and view their performance instantly.
+            </p>
+            <ul>
+                <li>Seamless online exams</li>
+                <li>Instant evaluation and reports</li>
+                <li>Secure login and access</li>
+                <li>Role-based dashboard</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <h2 class="text-center text-primary mb-4">Key Features</h2>
+        <div class="row text-center">
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm p-4">
+                    <i class="fas fa-book fa-3x text-success mb-3"></i>
+                    <h5>Create Courses & Levels</h5>
+                    <p class="text-muted">Admins can add courses, assign multiple levels, and manage questions easily.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm p-4">
+                    <i class="fas fa-laptop-code fa-3x text-primary mb-3"></i>
+                    <h5>Attend Online Exams</h5>
+                    <p class="text-muted">Students can log in, attempt exams, and view instant results after submission.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm p-4">
+                    <i class="fas fa-chart-line fa-3x text-warning mb-3"></i>
+                    <h5>Detailed Reports</h5>
+                    <p class="text-muted">View student-wise, course-wise, and level-wise performance reports.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-5 p-4 bg-primary text-white rounded shadow-sm">
+        <h2>Get Started Today!</h2>
+        <p class="mb-3">Join thousands of students and educators using our Online Examination System.</p>
+        <a href="@Url.Action("Register", "Main")" class="btn btn-light btn-lg">
+            <i class="fas fa-user-plus"></i> Create Your Account
+        </a>
+    </div>
+</div>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />

@@ -1,0 +1,135 @@
+﻿@{
+    ViewBag.Title = "Manage Courses";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+<style>
+    body {
+        background-color: #f5f7fa;
+    }
+
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+
+        .page-header h2 {
+            color: #007bff;
+            font-weight: 700;
+        }
+
+    .add-btn {
+        font-weight: bold;
+    }
+
+    .table-container {
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .table thead {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .table tbody tr:hover {
+        background-color: #f1faff;
+    }
+
+    .form-check-input:checked {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .edit-btn, .level-btn {
+        font-size: 0.9rem;
+    }
+</style>
+
+<div class="container mt-4">
+    <div class="page-header">
+        <h2><i class="fas fa-book"></i> Manage Courses</h2>
+        <a href="@Url.Action("AddCourse", "Admin")" class="btn btn-success add-btn">
+            <i class="fas fa-plus"></i> Add Course
+        </a>
+    </div>
+
+    <div class="table-container">
+        @if (ViewBag.Courses != null && ViewBag.Courses.Count > 0)
+        {
+            <table class="table table-striped table-hover table-bordered align-middle">
+                <thead>
+                    <tr>
+                        <th>Course Name</th>
+                        <th>Levels</th>
+                        <th>Edit</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var course in ViewBag.Courses)
+                    {
+                        <tr>
+                            <td>@course.CourseName</td>
+                            <td class="text-center">
+                                <a href="@Url.Action("Levels", "Admin", new { courseId = course.CourseId })" class="btn btn-info btn-sm level-btn">
+                                    <i class="fas fa-layer-group"></i> Levels
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <a href="@Url.Action("EditCourse", "Admin", new { courseId = course.CourseId })" class="btn btn-warning btn-sm edit-btn">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input toggle-status" type="checkbox" data-id="@course.CourseId" @(course.Status ? "checked" : "") />
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="alert alert-info text-center">
+                No courses available. Please add a new course.
+            </div>
+        }
+    </div>
+
+    <a href="@Url.Action("Dashboard", "Admin")" class="btn btn-secondary mt-3">
+        <i class="fas fa-arrow-left"></i> Back To Dashboard
+    </a>
+</div>
+
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.toggle-status').change(function () {
+                var courseId = $(this).data('id');
+                var checkbox = $(this);
+
+                $.ajax({
+                    url: '/Admin/ToggleStatus/' + courseId,
+                    type: 'POST',
+                    success: function (res) {
+                        alert(res.message);
+                    },
+                    error: function () {
+                        alert('Error toggling status');
+                        checkbox.prop('checked', !checkbox.prop('checked'));
+                    }
+                });
+            });
+        });
+    </script>
+}
