@@ -95,7 +95,7 @@ namespace OnlineExaminationSystem.Controllers.Home
 
             if (user.role != null && user.role.ToLower() != "student")
             {
-                return BadRequest("Invalid Password");
+                return BadRequest("Invalid Email");
             }
 
             user.password = req.NewPassword;  

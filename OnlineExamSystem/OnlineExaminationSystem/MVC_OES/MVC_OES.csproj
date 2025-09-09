@@ -260,6 +260,8 @@
     <Content Include="Views\Profile\StudentProfileEdit.cshtml" />
     <Content Include="Views\Admin\AdminProfileDetails.cshtml" />
     <Content Include="Views\Admin\AllStudents.cshtml" />
+    <Content Include="Views\Shared\_ExamLayout.cshtml" />
+    <Content Include="Views\Admin\CourseReports.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

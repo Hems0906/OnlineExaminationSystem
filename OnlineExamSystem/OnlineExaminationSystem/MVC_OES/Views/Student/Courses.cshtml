@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<MVC_OES.Models.Student.CourseModel>
 
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Courses";
 }
 
@@ -45,6 +46,9 @@
         text-align: center;
     }
 
+    .heading{
+        padding-top : 20px;
+    }
         .card-body .badge {
             font-size: 0.9rem;
             padding: 0.5em 0.8em;
@@ -70,7 +74,7 @@
     }
 </style>
 
-<h2>Available Courses</h2>
+<h2 class="heading">Available Courses</h2>
 
 <div class="text-end mb-3">
     <a href="@Url.Action("Dashboard", "Student", new { userId = (int)Session["UserId"]})" class="btn btn-primary">

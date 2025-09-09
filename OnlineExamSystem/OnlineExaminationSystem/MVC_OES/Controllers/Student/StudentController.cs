@@ -18,13 +18,28 @@ namespace MVC_OES.Controllers.Student
 
         private readonly string baseUrl = "https://localhost:44377/api/courses/";
 
-        public ActionResult Dashboard()
+        public async Task<ActionResult> Dashboard()
         {
-            //if (Session["UserRole"]?.ToString() != "student")
-            //    return RedirectToAction("Login", "Main");
-
-            ViewBag.UserId = Session["UserId"];
+            int userId = Convert.ToInt32(Session["UserId"]);
+            ViewBag.UserId = userId;
             ViewBag.UserEmail = Session["UserEmail"];
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(baseUrl);
+
+                var response = await client.GetAsync($"dashboard/{userId}");
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    dynamic stats = JsonConvert.DeserializeObject(json);
+                    ViewBag.Stats = stats;
+                }
+                else
+                {
+                    ViewBag.Stats = null;
+                }
+            }
 
             return View();
         }
@@ -150,6 +165,8 @@ namespace MVC_OES.Controllers.Student
                 return RedirectToAction("Courses");
 
             var report = JsonConvert.DeserializeObject<ExamReportViewModel>(reportJson);
+
+            ViewBag.courseId = report.courseId;
             return View(report);
         }
 
@@ -179,6 +196,37 @@ namespace MVC_OES.Controllers.Student
             }
 
             return View(results);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> SendCompletionEmail(int userId, int courseId)
+        {
+            try
+            {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                ServicePointManager.ServerCertificateValidationCallback +=
+                    (sender, cert, chain, sslPolicyErrors) => true;
+
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri("https://localhost:44377/api/courses/");
+
+                    var response = await client.GetAsync($"completedcourse/{userId}/{courseId}");
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return Json(new { success = true, message = "Email sent successfully." }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        return Json(new { success = false, message = "Failed to send email." }, JsonRequestBehavior.AllowGet);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
         }
     }
 }

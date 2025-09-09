@@ -1,0 +1,74 @@
+﻿@model IEnumerable<dynamic>
+
+@{
+    ViewBag.Title = "Course Reports";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<h2 class="text-center my-4">Course Level Pass/Fail Reports</h2>
+
+<div class="container">
+    @foreach (var course in Model)
+    {
+        <h4 class="mt-4">@course.CourseName</h4>
+        <div class="row">
+            @foreach (var level in course.Levels)
+            {
+                var canvasId = "chart_" + ((string)course.CourseName).Replace(" ", "") + "_" + level.LevelNumber;
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body text-center d-flex align-items-center" style="padding:15px; max-height:250px;">
+                            <canvas id="@canvasId" style="height:150px; width:150px;"></canvas>
+                            <div class="ms-3 text-start">
+                                <p><span class="text-success fw-bold">Passed:</span> @level.Passed</p>
+                                <p><span class="text-danger fw-bold">Failed:</span> @level.Failed</p>
+                            </div>
+                        </div>
+                        <div class="card-footer text-center">
+                            <h6>@level.LevelName (Level @level.LevelNumber)</h6>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        @foreach (var course in Model)
+        {
+            foreach (var level in course.Levels)
+            {
+                var canvasId = "chart_" + ((string)course.CourseName).Replace(" ", "") + "_" + level.LevelNumber;
+                <text>
+                var ctx = document.getElementById('@canvasId').getContext('2d');
+                new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Passed', 'Failed'],
+                        datasets: [{
+                            data: [@level.Passed, @level.Failed],
+                            backgroundColor: ['#28a745', '#dc3545']
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.label + ': ' + context.raw;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+                </text>
+            }
+        }
+    });
+</script>

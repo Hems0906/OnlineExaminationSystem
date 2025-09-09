@@ -360,5 +360,27 @@ namespace MVC_OES.Controllers.Admin
 
             return View(students);
         }
+
+        public async Task<ActionResult> CourseReports()
+        {
+            List<dynamic> reports = new List<dynamic>();
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new System.Uri(baseUrl);
+                var response = await client.GetAsync("reports/coursereports");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    reports = await response.Content.ReadAsAsync<List<dynamic>>();
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "Unable to fetch course reports.";
+                }
+            }
+
+            return View(reports);
+        }
     }
 }

@@ -3,7 +3,6 @@
     ViewBag.Title = "Register";
 }
 
-        <!-- Bootstrap & FontAwesome -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 
@@ -87,7 +86,6 @@
                 <h2>Student Registration</h2>
                 <p class="text-center text-muted mb-3">Create your account to start your exams</p>
 
-                <!-- Error Messages -->
                 @if (ViewBag.ErrorMessage != null)
                 {
                     <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
@@ -97,11 +95,9 @@
                     <div class="alert alert-success">@TempData["SuccessMessage"]</div>
                 }
 
-                <!-- Registration Form -->
                 @using (Html.BeginForm("Register", "Main", FormMethod.Post))
                 {
 
-                    <!-- Student Name -->
                     <div class="form-group">
                         <i class="fas fa-user input-icon"></i>
                         @Html.TextBoxFor(m => m.StuName, new
@@ -115,7 +111,6 @@
                     </div>
 
 
-                    <!-- Mobile -->
                     <div class="form-group">
                         <i class="fas fa-phone input-icon"></i>
                         @Html.TextBoxFor(m => m.Mobile, new
@@ -128,7 +123,6 @@
                         @Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "text-danger" })
                     </div>
 
-                    <!-- City -->
                     <div class="form-group">
                         <i class="fas fa-city input-icon"></i>
                         @Html.TextBoxFor(m => m.City, new
@@ -141,7 +135,6 @@
                         @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
                     </div>
 
-                    <!-- State -->
                     <div class="form-group">
                         <i class="fas fa-map-marker-alt input-icon"></i>
                         @Html.TextBoxFor(m => m.State, new
@@ -154,49 +147,42 @@
                         @Html.ValidationMessageFor(m => m.State, "", new { @class = "text-danger" })
                     </div>
 
-                    <!-- Date of Birth -->
                     <div class="form-group">
                         <i class="fas fa-calendar input-icon"></i>
                         @Html.TextBoxFor(m => m.DOB, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
                         @Html.ValidationMessageFor(m => m.DOB, "", new { @class = "text-danger" })
                     </div>
 
-                    <!-- Qualification -->
                     <div class="form-group">
                         <i class="fas fa-graduation-cap input-icon"></i>
                         @Html.TextBoxFor(m => m.Qualification, new { @class = "form-control", placeholder = "Enter your qualification" })
                         @Html.ValidationMessageFor(m => m.Qualification, "", new { @class = "text-danger" })
                     </div>
 
-                    <!-- Completion Year -->
                     <div class="form-group">
                         <i class="fas fa-calendar-check input-icon"></i>
                         @Html.TextBoxFor(m => m.Completion, new { @class = "form-control", placeholder = "Enter completion year" })
                         @Html.ValidationMessageFor(m => m.Completion, "", new { @class = "text-danger" })
                     </div>
 
-                    <!-- Email -->
                     <div class="form-group">
                         <i class="fas fa-envelope input-icon"></i>
                         @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "email", placeholder = "Enter your email" })
                         @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                     </div>
 
-                    <!-- Password -->
                     <div class="form-group">
                         <i class="fas fa-lock input-icon"></i>
                         @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Enter password" })
                         @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                     </div>
 
-                    <!-- Confirm Password -->
                     <div class="form-group">
                         <i class="fas fa-lock input-icon"></i>
                         @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm password" })
                         @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
                     </div>
 
-                    <!-- Captcha Section -->
                     <div class="form-group">
                         @*<label>Enter Captcha</label>*@
                         <div style="font-weight:bold; font-size:20px; background:#f0f0f0; padding:10px; display:inline-block;">
@@ -207,13 +193,11 @@
                         @Html.ValidationMessageFor(m => m.CaptchaInput)
                     </div>
 
-                    <!-- Submit Button -->
                     <button type="submit" class="btn btn-register btn-lg">
                         <i class="fas fa-user-plus"></i> Register
                     </button>
                 }
 
-                <!-- Login Link -->
                 <div class="login-link">
                     <p>Already have an account? <a href="@Url.Action("Login", "Main")">Login Here</a></p>
                 </div>
@@ -283,7 +267,6 @@
 
             <script>
                 $(document).ready(function () {
-                    // Allow only alphabets + space
                     $("#City, #State").on("keypress", function (e) {
                         let char = String.fromCharCode(e.which);
                         if (!/^[a-zA-Z\s]$/.test(char)) {
