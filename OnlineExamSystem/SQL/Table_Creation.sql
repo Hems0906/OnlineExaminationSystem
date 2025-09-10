@@ -112,11 +112,19 @@ create table UserOTP (
     foreign key (user_id) references Users(user_Id)
 )
 
+--Creating Suggestions Table
 
+create table Suggestions( SuggestionId int identity(1,1) primary key,
+							UserId int foreign key references Users(user_id),
+							CourseId int foreign key references courses(course_id),
+							SuggestionText nvarchar(max) not null,
+							CreatedOn datetime default getDate())
 
 insert into Admin(admin_name, phone, address) values ('Admin_Rahul', '9876543210', 'New York, USA')
 
 insert into Users(email, password, role, reference_Id) values ('admin123@gmail.com', 'Admin@123', 'admin', 1)
+
+ALTER TABLE Users ALTER COLUMN password NVARCHAR(200) NOT NULL
 
 select * from Admin
 select * from Users
@@ -129,6 +137,7 @@ select * from UserAnswers
 select * from StudentProgress
 select * from ExamReports
 select * from UserOTP
+select * from Suggestions
 
 drop table ExamReports
 drop table StudentProgress
@@ -137,3 +146,5 @@ drop table ExamAttempts
 drop table Questions
 drop table Levels
 drop table courses
+
+delete from Student where stu_id in (110, 111)

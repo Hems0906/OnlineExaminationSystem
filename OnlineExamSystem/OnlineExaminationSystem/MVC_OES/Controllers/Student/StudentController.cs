@@ -228,5 +228,48 @@ namespace MVC_OES.Controllers.Student
                 return Json(new { success = false, message = ex.Message }, JsonRequestBehavior.AllowGet);
             }
         }
+
+        [HttpGet]
+        public ActionResult Suggestions(int userId, int courseId)
+        {
+            var model = new SuggestionViewModel
+            {
+                UserId = userId,
+                CourseId = courseId
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Suggestions(SuggestionViewModel model)
+        {
+            if (string.IsNullOrWhiteSpace(model.SuggestionText))
+            {
+                ModelState.AddModelError("", "Please enter your suggestion.");
+                return View("Suggestions", model);
+            }
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44377/api/exam/");
+
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                ServicePointManager.ServerCertificateValidationCallback +=
+                    (sender, cert, chain, sslPolicyErrors) => true;
+
+                var response = await client.PostAsJsonAsync("suggestion", model);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    TempData["SuccessMessage"] = "Suggestion submitted successfully!";
+                    return RedirectToAction("Courses", "Student", new { userId = model.UserId });
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Failed to submit suggestion. Try again later.");
+                    return View("Suggestions", model);
+                }
+            }
+        }
     }
 }

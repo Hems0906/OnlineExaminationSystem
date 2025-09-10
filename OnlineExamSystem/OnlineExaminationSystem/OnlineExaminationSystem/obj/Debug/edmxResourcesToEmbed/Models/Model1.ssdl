@@ -99,6 +99,16 @@
     <Property Name="highest_level_passed" Type="int" />
     <Property Name="is_completed" Type="bit" />
   </EntityType>
+  <EntityType Name="Suggestions">
+    <Key>
+      <PropertyRef Name="SuggestionId" />
+    </Key>
+    <Property Name="SuggestionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="CourseId" Type="int" />
+    <Property Name="SuggestionText" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" />
+  </EntityType>
   <EntityType Name="UserAnswers">
     <Key>
       <PropertyRef Name="answer_id" />
@@ -125,7 +135,7 @@
     </Key>
     <Property Name="user_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="email" Type="nvarchar" MaxLength="30" Nullable="false" />
-    <Property Name="password" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="role" Type="nvarchar" MaxLength="25" Nullable="false" />
     <Property Name="reference_Id" Type="int" Nullable="false" />
   </EntityType>
@@ -249,6 +259,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__Suggestio__Cours__147C05D0">
+    <End Role="courses" Type="Self.courses" Multiplicity="0..1" />
+    <End Role="Suggestions" Type="Self.Suggestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="course_Id" />
+      </Principal>
+      <Dependent Role="Suggestions">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Suggestio__UserI__1387E197">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Suggestions" Type="Self.Suggestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="user_Id" />
+      </Principal>
+      <Dependent Role="Suggestions">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__UserAnswe__attem__67A95F59">
     <End Role="ExamAttempts" Type="Self.ExamAttempts" Multiplicity="0..1" />
     <End Role="UserAnswers" Type="Self.UserAnswers" Multiplicity="*" />
@@ -294,6 +328,7 @@
     <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StudentProgress" EntityType="Self.StudentProgress" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Suggestions" EntityType="Self.Suggestions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserAnswers" EntityType="Self.UserAnswers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserOTP" EntityType="Self.UserOTP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
@@ -336,6 +371,14 @@
     <AssociationSet Name="FK__StudentPr__user___6C6E1476" Association="Self.FK__StudentPr__user___6C6E1476">
       <End Role="Users" EntitySet="Users" />
       <End Role="StudentProgress" EntitySet="StudentProgress" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Suggestio__Cours__147C05D0" Association="Self.FK__Suggestio__Cours__147C05D0">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="Suggestions" EntitySet="Suggestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Suggestio__UserI__1387E197" Association="Self.FK__Suggestio__UserI__1387E197">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Suggestions" EntitySet="Suggestions" />
     </AssociationSet>
     <AssociationSet Name="FK__UserAnswe__attem__67A95F59" Association="Self.FK__UserAnswe__attem__67A95F59">
       <End Role="ExamAttempts" EntitySet="ExamAttempts" />

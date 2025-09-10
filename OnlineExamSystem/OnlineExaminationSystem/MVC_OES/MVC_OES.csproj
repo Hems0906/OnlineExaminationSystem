@@ -177,6 +177,7 @@
     <Compile Include="Models\Levels\LevelViewModel.cs" />
     <Compile Include="Models\Profile\AdminProfileDto.cs" />
     <Compile Include="Models\Profile\StudentProfileDto.cs" />
+    <Compile Include="Models\Questions\ExamAttemptViewModel.cs" />
     <Compile Include="Models\Questions\QuestionModel.cs" />
     <Compile Include="Models\Questions\UploadQuestionModel.cs" />
     <Compile Include="Models\Student\Answer.cs" />
@@ -190,6 +191,7 @@
     <Compile Include="Models\Student\StudentDto.cs" />
     <Compile Include="Models\Student\StudentProfileViewModel.cs" />
     <Compile Include="Models\Student\SubmitExamRequest.cs" />
+    <Compile Include="Models\Student\SuggestionViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CaptchaService.cs" />
   </ItemGroup>
@@ -262,6 +264,8 @@
     <Content Include="Views\Admin\AllStudents.cshtml" />
     <Content Include="Views\Shared\_ExamLayout.cshtml" />
     <Content Include="Views\Admin\CourseReports.cshtml" />
+    <Content Include="Views\Student\Suggestions.cshtml" />
+    <Content Include="Views\Admin\ExamAttempts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

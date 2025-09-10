@@ -22,6 +22,7 @@ namespace OnlineExaminationSystem.Models
             this.Levels = new HashSet<Level>();
             this.Questions = new HashSet<Question>();
             this.StudentProgresses = new HashSet<StudentProgress>();
+            this.Suggestions = new HashSet<Suggestion>();
         }
     
         public int course_Id { get; set; }
@@ -38,5 +39,7 @@ namespace OnlineExaminationSystem.Models
         public virtual ICollection<Question> Questions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentProgress> StudentProgresses { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Suggestion> Suggestions { get; set; }
     }
 }

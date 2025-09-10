@@ -11,7 +11,7 @@ namespace OnlineExaminationSystem.Controllers.Students
     [RoutePrefix("api/exam")]
     public class ExamController : ApiController
     {
-        OnlineExamSystemEntities2 db = new OnlineExamSystemEntities2();
+        OnlineExamSystemEntities4 db = new OnlineExamSystemEntities4();
 
         [HttpGet]
         [Route("instructions/{courseid}/{levelnumber}")]
@@ -224,6 +224,42 @@ namespace OnlineExaminationSystem.Controllers.Students
             catch (Exception ex)
             {
                 return InternalServerError(ex);
+            }
+        }
+
+        [HttpPost]
+        [Route("suggestion")]
+        public IHttpActionResult SaveSuggestion([FromBody] Models.Exam.SuggestionModel suggestion)
+        {
+            try
+            {
+                if (suggestion == null || string.IsNullOrWhiteSpace(suggestion.SuggestionText))
+                    return BadRequest("Suggestion cannot be empty.");
+
+                var userExists = db.Users.Any(u => u.user_Id == suggestion.UserId);
+                if (!userExists)
+                    return BadRequest("Invalid User.");
+
+                var courseExists = db.courses.Any(c => c.course_Id == suggestion.CourseId);
+                if (!courseExists)
+                    return BadRequest("Invalid Course.");
+
+                var newSuggestion = new Suggestion
+                {
+                    UserId = suggestion.UserId,
+                    CourseId = suggestion.CourseId,
+                    SuggestionText = suggestion.SuggestionText,
+                    CreatedOn = DateTime.Now
+                };
+
+                db.Suggestions.Add(newSuggestion);
+                db.SaveChanges();
+
+                return Ok(new { success = true, message = "Suggestion submitted successfully!" });
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.InternalServerError, ex.Message);
             }
         }
 

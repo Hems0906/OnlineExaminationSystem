@@ -1,0 +1,43 @@
+﻿@model MVC_OES.Models.Student.SuggestionViewModel
+@{
+    ViewBag.Title = "Suggestions";
+    Layout = "~/Views/Shared/_ExamLayout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <div class="card-header text-white text-center py-3">
+            <h2>We Value Your Feedback</h2>
+        </div>
+
+        <div class="card-body mt-3">
+            @using (Html.BeginForm("SubmitSuggestion", "Student", FormMethod.Post))
+            {
+                @Html.HiddenFor(m => m.UserId)
+                @Html.HiddenFor(m => m.CourseId)
+
+                <div class="form-group mb-3">
+                    <label for="SuggestionText">Your Suggestions</label>
+                    @Html.TextAreaFor(m => m.SuggestionText, new
+                    {
+                        @class = "form-control",
+                        rows = "5",
+                        placeholder = "Enter your suggestions here..."
+                    })
+                    @Html.ValidationMessageFor(m => m.SuggestionText, "", new { @class = "text-danger" })
+                </div>
+
+                <a id="btnBackToCourses" href="@Url.Action("Courses", "Student", new { userId = (int)Session["UserId"] })" class="btn btn-primary btn-lg">
+                    Submit Suggestion
+                </a>
+            }
+        </div>
+    </div>
+</div>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success mt-3 text-center">
+        @TempData["SuccessMessage"]
+    </div>
+}

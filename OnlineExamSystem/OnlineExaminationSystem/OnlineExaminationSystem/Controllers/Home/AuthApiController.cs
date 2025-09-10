@@ -12,7 +12,7 @@ namespace OnlineExaminationSystem.Controllers.Home
     [RoutePrefix("api/auth")]
     public class AuthApiController : ApiController
     {
-        OnlineExamSystemEntities2 db = new OnlineExamSystemEntities2();
+        OnlineExamSystemEntities4 db = new OnlineExamSystemEntities4();
 
         [HttpGet]
         [Route("exists")]

@@ -11,7 +11,7 @@ namespace OnlineExaminationSystem.Controllers.Admin
     [RoutePrefix("api/admin")]
     public class AdminController : ApiController
     {
-        OnlineExamSystemEntities2 db = new OnlineExamSystemEntities2();
+        OnlineExamSystemEntities4 db = new OnlineExamSystemEntities4();
 
         [HttpGet]
         [Route("getdashboardstats")]
@@ -316,6 +316,44 @@ namespace OnlineExaminationSystem.Controllers.Admin
             }
         }
 
+        [HttpGet]
+        [Route("exam-attempts")]
+        public IHttpActionResult GetExamAttempts(int? studentId = null)
+        {
+            try
+            {
+                var attempts = (from a in db.ExamAttempts
+                                join u in db.Users on a.user_id equals u.user_Id
+                                join s in db.Students on u.reference_Id equals s.stu_id
+                                join c in db.courses on a.course_id equals c.course_Id
+                                join l in db.Levels on new { a.course_id, a.level_number } equals new { l.course_id, l.level_number }
+                                orderby a.attempt_id descending
+                                select new
+                                {
+                                    AttemptId = a.attempt_id,
+                                    StudentId = s.stu_id,
+                                    StudentName = s.stu_name,
+                                    Email = u.email,
+                                    CourseName = c.course_name,
+                                    LevelNumber = a.level_number,
+                                    TotalQuestions = a.total_questions,
+                                    CorrectAnswers = a.correct_answers,
+                                    Score = a.score,
+                                    TotalTime = a.total_time,
+                                    TimeTaken = a.time_taken,
+                                    IsPassed = a.is_passed
+                                }).ToList();
+
+                if (studentId.HasValue)
+                    attempts = attempts.Where(x => x.StudentId == studentId.Value).ToList();
+
+                return Ok(attempts);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
 
     }
 }

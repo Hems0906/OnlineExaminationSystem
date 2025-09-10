@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExaminationSystem", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_OES", "MVC_OES\MVC_OES.csproj", "{63614C5D-4F61-44F6-B23F-D30C1312D1B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OES_Testing", "OES_Testing\OES_Testing.csproj", "{F6EFE38C-46C6-4051-B12A-7B5F574DE432}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{63614C5D-4F61-44F6-B23F-D30C1312D1B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63614C5D-4F61-44F6-B23F-D30C1312D1B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63614C5D-4F61-44F6-B23F-D30C1312D1B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6EFE38C-46C6-4051-B12A-7B5F574DE432}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6EFE38C-46C6-4051-B12A-7B5F574DE432}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6EFE38C-46C6-4051-B12A-7B5F574DE432}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6EFE38C-46C6-4051-B12A-7B5F574DE432}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

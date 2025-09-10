@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="OnlineExamSystemModelStoreContainer" CdmEntityContainer="OnlineExamSystemEntities2">
+  <EntityContainerMapping StorageEntityContainer="OnlineExamSystemModelStoreContainer" CdmEntityContainer="OnlineExamSystemEntities4">
     <EntitySetMapping Name="Admins">
       <EntityTypeMapping TypeName="OnlineExamSystemModel.Admin">
         <MappingFragment StoreEntitySet="Admin">
@@ -105,6 +105,17 @@
           <ScalarProperty Name="course_id" ColumnName="course_id" />
           <ScalarProperty Name="highest_level_passed" ColumnName="highest_level_passed" />
           <ScalarProperty Name="is_completed" ColumnName="is_completed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suggestions">
+      <EntityTypeMapping TypeName="OnlineExamSystemModel.Suggestion">
+        <MappingFragment StoreEntitySet="Suggestions">
+          <ScalarProperty Name="SuggestionId" ColumnName="SuggestionId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="SuggestionText" ColumnName="SuggestionText" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
