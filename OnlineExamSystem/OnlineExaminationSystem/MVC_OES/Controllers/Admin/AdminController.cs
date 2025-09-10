@@ -382,5 +382,46 @@ namespace MVC_OES.Controllers.Admin
 
             return View(reports);
         }
+
+        public async Task<ActionResult> ExamAttempts(int? studentId)
+        {
+            List<Models.Questions.ExamAttemptViewModel> attempts = new List<Models.Questions.ExamAttemptViewModel>();
+            List<SelectListItem> studentList = new List<SelectListItem>();
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44377/api/admin/");
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+                var studentResponse = await client.GetAsync("students");
+                if (studentResponse.IsSuccessStatusCode)
+                {
+                    var students = await studentResponse.Content.ReadAsAsync<List<dynamic>>();
+                    studentList.Add(new SelectListItem { Text = "All Students", Value = "" });
+
+                    foreach (var s in students)
+                    {
+                        studentList.Add(new SelectListItem
+                        {
+                            Text = s.stu_name,
+                            Value = s.stu_id.ToString()
+                        });
+                    }
+                }
+
+                string url = studentId.HasValue ? $"exam-attempts?studentId={studentId}" : "exam-attempts";
+                var response = await client.GetAsync(url);
+                if (response.IsSuccessStatusCode)
+                {
+                    attempts = await response.Content.ReadAsAsync<List<Models.Questions.ExamAttemptViewModel>>();
+                }
+            }
+
+            ViewBag.StudentList = studentList;
+            ViewBag.SelectedStudent = studentId;
+            return View(attempts);
+        }
+
+
     }
 }

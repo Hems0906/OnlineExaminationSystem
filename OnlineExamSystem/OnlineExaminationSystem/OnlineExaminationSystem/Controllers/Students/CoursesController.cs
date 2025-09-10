@@ -12,7 +12,7 @@ namespace OnlineExaminationSystem.Controllers.Students
     [RoutePrefix("api/courses")]
     public class CoursesController : ApiController
     {
-        OnlineExamSystemEntities2 db = new OnlineExamSystemEntities2();
+        OnlineExamSystemEntities4 db = new OnlineExamSystemEntities4();
 
         [HttpGet]
         [Route("getcourses/{userId}")]

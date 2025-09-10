@@ -5,14 +5,37 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using OnlineExaminationSystem.Models;
+using System.Security.Cryptography;
+using System.Text;
+
 
 namespace OnlineExaminationSystem.Controllers.Home
 {
     [RoutePrefix("api/home")]
     public class MainController : ApiController
     {
-        OnlineExamSystemEntities2 db = new OnlineExamSystemEntities2();
-        
+        OnlineExamSystemEntities4 db = new OnlineExamSystemEntities4();
+
+        public static string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                foreach (byte b in bytes)
+                {
+                    builder.Append(b.ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
+
+        public static bool VerifyPassword(string enteredPassword, string storedHash)
+        {
+            string hashedInput = HashPassword(enteredPassword);
+            return hashedInput.Equals(storedHash);
+        }
+
 
         [HttpPost]
         [Route("register")]
@@ -42,7 +65,7 @@ namespace OnlineExaminationSystem.Controllers.Home
                 var user = new User
                 {
                     email = st.Email,
-                    password = st.Password,
+                    password = HashPassword(st.Password)/* st.Password*/,
                     role = "student",
                     reference_Id = stu.stu_id
                 };
@@ -64,8 +87,27 @@ namespace OnlineExaminationSystem.Controllers.Home
         {
             try
             {
-                var user = db.Users.FirstOrDefault(u => u.email == login.Email && u.password == login.Password);
+                var user = db.Users.FirstOrDefault(u => u.email == login.Email);
                 if (user == null)
+                    return BadRequest("Invalid email or password!");
+
+                bool isPasswordValid = false;
+
+                if (user.password.Length > 40) 
+                {
+                    isPasswordValid = VerifyPassword(login.Password, user.password);
+                }
+                else
+                {
+                    if (user.password == login.Password)
+                    {
+                        user.password = HashPassword(login.Password);
+                        db.SaveChanges();
+                        isPasswordValid = true;
+                    }
+                }
+
+                if (!isPasswordValid)
                     return BadRequest("Invalid email or password!");
 
                 string userName = "";

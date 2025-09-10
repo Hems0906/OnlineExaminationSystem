@@ -8,10 +8,10 @@ namespace MVC_OES.Models.Levels
 {
     public class LevelViewModel
     {
-        [Required]
+        //[Required]
         public int LevelId { get; set; }
 
-        [Required]
+        //[Required]
         public int CourseId { get; set; }
 
         [Required]

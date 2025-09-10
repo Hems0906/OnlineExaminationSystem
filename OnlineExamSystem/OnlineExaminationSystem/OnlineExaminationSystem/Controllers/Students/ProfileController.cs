@@ -11,7 +11,7 @@ namespace OnlineExaminationSystem.Controllers.Students
     [RoutePrefix("api/profile")]
     public class ProfileController : ApiController
     {
-        OnlineExamSystemEntities2 db = new OnlineExamSystemEntities2();
+        OnlineExamSystemEntities4 db = new OnlineExamSystemEntities4();
 
         [HttpGet]
         [Route("get")]

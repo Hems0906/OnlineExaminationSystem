@@ -12,7 +12,7 @@ namespace OnlineExaminationSystem.Controllers.Admin
     public class QuestionController : ApiController
     {
 
-        OnlineExamSystemEntities2 db = new OnlineExamSystemEntities2();
+        OnlineExamSystemEntities4 db = new OnlineExamSystemEntities4();
 
 
         [HttpGet]

@@ -20,6 +20,7 @@ namespace OnlineExaminationSystem.Models
             this.ExamAttempts = new HashSet<ExamAttempt>();
             this.ExamReports = new HashSet<ExamReport>();
             this.StudentProgresses = new HashSet<StudentProgress>();
+            this.Suggestions = new HashSet<Suggestion>();
             this.UserOTPs = new HashSet<UserOTP>();
         }
     
@@ -35,6 +36,8 @@ namespace OnlineExaminationSystem.Models
         public virtual ICollection<ExamReport> ExamReports { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentProgress> StudentProgresses { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Suggestion> Suggestions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserOTP> UserOTPs { get; set; }
     }
